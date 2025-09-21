@@ -1,8 +1,3 @@
----
-layout: default
-title: Landing Page
----
-
 # Welcome to my GitHub
 
 Updates coming soon...
