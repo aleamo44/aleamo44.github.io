@@ -1,6 +1,6 @@
 # Welcome to my GitHub
 
-22.09.2025 First release of CallBlocker Community app for Android for internal tests.
+Go to my Activity Log: [https://aleamo44.github.io/aleamo44/landing-page.html](https://github.com/aleamo44)
 
 ## Contact
 Email: [ale.amo16tt@gmail.com](mailto:ale.amo16tt@gmail.com)
