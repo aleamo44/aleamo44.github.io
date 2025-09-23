@@ -1,6 +1,6 @@
 # Welcome to my GitHub
 
-Go to my [Activity Log](https://aleamo44.github.io/aleamo44/landing-page.html)
+Go to my [Activity Log](https://aleamo44.github.io/aleamo44/activity-log.html)
 
 ## Contact
 Email: [ale.amo16tt@gmail.com](mailto:ale.amo16tt@gmail.com)
