@@ -1,6 +1,6 @@
 # Welcome to my GitHub
 
-Updates coming soon...
+22.09.2025 First release of CallBlocker Community app for Android for internal tests.
 
 ## Contact
 Email: [ale.amo16tt@gmail.com](mailto:ale.amo16tt@gmail.com)
