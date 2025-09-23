@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Il Mio Log - GitHub</title>
+  <title>My GitHub Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #0d1117; /* dark GitHub background */
+      background: #0d1117; /* GitHub dark background */
       color: #c9d1d9;
       margin: 0;
       padding: 0;
@@ -17,7 +17,7 @@
     header {
       text-align: center;
       padding: 3rem 1rem;
-      background: #161b22; /* dark header */
+      background: #161b22;
       color: #c9d1d9;
       border-bottom-left-radius: 1rem;
       border-bottom-right-radius: 1rem;
@@ -37,13 +37,25 @@
     }
 
     main {
-      max-width: 700px;
+      max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
 
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid #30363d;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      color: #58a6ff;
+    }
+
     .log-entry {
-      background: #161b22; /* dark card */
+      background: #161b22;
       border-radius: 1rem;
       padding: 1.5rem 2rem;
       margin-bottom: 1.5rem;
@@ -62,6 +74,13 @@
       font-weight: 600;
       color: #8b949e;
       margin-bottom: 0.4rem;
+    }
+
+    .log-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #c9d1d9;
     }
 
     .log-text {
@@ -90,24 +109,63 @@
 </head>
 <body>
 
-  <header>
-    <h1>📓 aleamo44 Activity Log</h1>
-    <p>Keep updated with incoming projects</p>
-  </header>
+<header>
+  <h1>📓 My GitHub Dashboard</h1>
+  <p>Activity logs and current projects</p>
+</header>
 
-  <main>
+<main>
+  <!-- Activity Log Section -->
+  <section id="activity-log">
+    <h2>Activity Log</h2>
+
     <div class="log-entry">
       <div class="log-date">22.09.2025</div>
+      <div class="log-title">First release of CallBlocker Community app</div>
       <div class="log-text">
-        First release of <strong>CallBlocker Community app</strong> for Android for internal tests.
+        Released for internal Android tests. Worked on bug fixes and performance improvements.
       </div>
     </div>
-  </main>
 
-  <footer>
-    <div>📧 Email: <a href="mailto:ale.amo16tt@gmail.com">ale.amo16tt@gmail.com</a></div>
-    <div>🐱 GitHub: <a href="https://github.com/aleamo44" target="_blank">https://github.com/aleamo44</a></div>
-  </footer>
+    <!-- Add more log entries here -->
+  </section>
+
+  <!-- Incoming Section -->
+  <section id="incoming">
+    <h2>Incoming</h2>
+
+    <div class="log-entry">
+      <div class="log-date">Ongoing</div>
+      <div class="log-title">CallBlocker Community app - feature updates</div>
+      <div class="log-text">
+        Working on implementing new call filtering rules and user feedback integration.
+      </div>
+    </div>
+
+    <div class="log-entry">
+      <div class="log-date">Ongoing</div>
+      <div class="log-title">Personal website redesign</div>
+      <div class="log-text">
+        Planning a new layout and dark/light theme toggle for my landing page.
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="log-entry">
+      <div class="log-text">
+        📧 Email: <a href="mailto:ale.amo16tt@gmail.com">ale.amo16tt@gmail.com</a><br>
+        🐱 GitHub: <a href="https://github.com/aleamo44" target="_blank">https://github.com/aleamo44</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2025 Ale Amo
+</footer>
 
 </body>
 </html>
