@@ -1,90 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Call Blocker Community - Privacy Policy</title>
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; max-width: 800px; }
-    h1, h2, h3 { color: #333; }
-    hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
-    a { color: #1a0dab; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Call Blocker Community</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .last-updated {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p><strong>Last Updated: September 2025</strong></p>
+    <div class="container">
+        <h1>Privacy Policy - Call Blocker Community</h1>
+        <p class="last-updated"><strong>Last Updated:</strong> September 2025</p>
 
-  <p>Call Blocker Community (“we,” “our,” or “us”) values your privacy. This Privacy Policy explains how our Android application (“the App”) collects, uses, and protects your information. By using the App, you agree to the practices described below.</p>
+        <p>Call Blocker Community ("we," "our," or "us") values your privacy. This Privacy Policy explains how our Android application ("the App") collects, uses, and protects your information. By using the App, you agree to the practices described below.</p>
 
-  <hr>
+        <h2>1. Information We Collect</h2>
 
-  <h2>1. Information We Collect</h2>
+        <h3>A. Information You Provide</h3>
+        <ul>
+            <li><strong>Spam Reports:</strong> Phone numbers you report as spam and the category you assign (e.g., "Telemarketing," "Fraud").</li>
+            <li><strong>Problem Reports:</strong> If you submit a support request, we collect your email address and issue description to contact you.</li>
+        </ul>
 
-  <h3>A. Information You Provide</h3>
-  <ul>
-    <li><strong>Spam Reports</strong>: Phone numbers you report as spam and the category you assign (e.g., “Telemarketing,” “Fraud”).</li>
-    <li><strong>Problem Reports</strong>: If you submit a support request, we collect your email address and issue description to contact you.</li>
-  </ul>
+        <h3>B. Information Collected Automatically</h3>
+        <ul>
+            <li><strong>Anonymous User ID:</strong> Generated via Firebase Authentication (anonymous sign-in) to associate reports and logs without requiring personal data.</li>
+            <li><strong>Call and Contact Information (with permission):</strong> The App needs access to your call history (numbers, dates, times) and checks numbers against your contacts to avoid blocking them. Your contact list is never uploaded.</li>
+            <li><strong>Advertising Data:</strong> Collected via Google AdMob (advertising ID and technical information) for personalized ads.</li>
+            <li><strong>Network Information:</strong> Your IP address and network status may be collected by Firebase and AdMob.</li>
+        </ul>
 
-  <h3>B. Information Collected Automatically</h3>
-  <ul>
-    <li><strong>Anonymous User ID</strong>: Generated via Firebase Authentication (anonymous sign-in) to associate reports and logs without requiring personal data.</li>
-    <li><strong>Call and Contact Information (with permission)</strong>: The App needs access to your call history (numbers, dates, times) and checks numbers against your contacts to avoid blocking them. Your contact list is never uploaded.</li>
-    <li><strong>Advertising Data</strong>: Collected via Google AdMob (advertising ID and technical information) for personalized ads.</li>
-    <li><strong>Network Information</strong>: Your IP address and network status may be collected by Firebase and AdMob.</li>
-  </ul>
+        <h3>C. Information We Do Not Collect</h3>
+        <p>We do not collect your name, address book, geographic location, or any other sensitive personal data.</p>
 
-  <h3>C. Information We Do Not Collect</h3>
-  <p>We do not collect your name, address book, geographic location, or any other sensitive personal data.</p>
+        <h2>2. How Data Is Used and Stored</h2>
+        <p>Data is used to identify and block spam, improve our service, support ads, and respond to support requests.</p>
+        <ul>
+            <li><strong>Stored locally:</strong> cache, whitelist, settings.</li>
+            <li><strong>Stored securely on Firebase Firestore servers:</strong> spam database, your reports.</li>
+        </ul>
 
-  <hr>
+        <h2>3. Data Security</h2>
+        <p>We use industry-standard safeguards, including HTTPS/TLS encryption for data in transit, and rely on Google's secure cloud infrastructure.</p>
 
-  <h2>2. How Data Is Used and Stored</h2>
-  <p>Data is used to identify and block spam, improve our service, support ads, and respond to support requests.</p>
-  <ul>
-    <li>Stored locally: cache, whitelist, settings.</li>
-    <li>Stored securely on Firebase Firestore servers: spam database, your reports.</li>
-  </ul>
+        <h2>4. Third-Party Services & Tracking</h2>
+        <p>We use:</p>
+        <ul>
+            <li><a href="https://firebase.google.com/support/privacy" target="_blank">Firebase</a></li>
+            <li><a href="https://policies.google.com/technologies/ads" target="_blank">Google Ads</a></li>
+        </ul>
+        <p>AdMob may use cookies or device identifiers for ad personalization.</p>
 
-  <hr>
+        <h2>5. Your Choices and Rights</h2>
+        <ul>
+            <li>Manage reports and whitelist directly in the App.</li>
+            <li>Opt out of personalized ads in your device settings.</li>
+            <li>Request deletion of your data via the "Report a Problem" feature.</li>
+        </ul>
 
-  <h2>3. Data Security</h2>
-  <p>We use industry-standard safeguards, including HTTPS/TLS encryption for data in transit, and rely on Google’s secure cloud infrastructure.</p>
+        <h2>6. Children's Privacy</h2>
+        <p>The App is not intended for children under 13.</p>
 
-  <hr>
+        <h2>7. Changes to this Policy</h2>
+        <p>We may update this Privacy Policy. Updates will be communicated through App releases.</p>
 
-  <h2>4. Third-Party Services & Tracking</h2>
-  <p>We use:</p>
-  <ul>
-    <li><a href="https://firebase.google.com/support/privacy" target="_blank">Firebase</a></li>
-    <li><a href="https://policies.google.com/technologies/ads" target="_blank">Google Ads</a></li>
-  </ul>
-  <p>AdMob may use cookies or device identifiers for ad personalization.</p>
+        <h2>8. Contact Us</h2>
+        <p>For questions, please use the <strong>"Report a Problem"</strong> feature in the App.</p>
 
-  <hr>
-
-  <h2>5. Your Choices and Rights</h2>
-  <ul>
-    <li>Manage reports and whitelist directly in the App.</li>
-    <li>Opt out of personalized ads in your device settings.</li>
-    <li>Request deletion of your data via the “Report a Problem” feature.</li>
-  </ul>
-
-  <hr>
-
-  <h2>6. Children’s Privacy</h2>
-  <p>The App is not intended for children under 13.</p>
-
-  <hr>
-
-  <h2>7. Changes to this Policy</h2>
-  <p>We may update this Privacy Policy. Updates will be communicated through App releases.</p>
-
-  <hr>
-
-  <h2>8. Contact Us</h2>
-  <p>For questions, please use the <strong>“Report a Problem”</strong> feature in the App.</p>
+        <div class="footer">
+            <p><strong>Developer:</strong> Call Blocker Community</p>
+            <p><strong>Effective Date:</strong> September 2025</p>
+        </div>
+    </div>
 </body>
 </html>
