@@ -56,8 +56,8 @@ const translations = {
                 description: "CallShield is not a dialer and does not replace your phone's default dialer. It works alongside your existing phone app."
             },
             noContactAccess: {
-                title: "No Contact Access",
-                description: "CallShield does not access or control your contacts. It only processes call notifications locally to determine blocking actions."
+                title: "Protected Contacts",
+                description: "CallShield does not share or acquire information about your contacts. It only processes call notifications locally to determine blocking actions."
             },
             notificationBased: {
                 title: "Notification-Based",
@@ -303,8 +303,8 @@ const translations = {
                 description: "CallShield non è un'app dialer e non sostituisce il dialer predefinito del telefono. Funziona insieme alla tua app telefonica esistente."
             },
             noContactAccess: {
-                title: "Nessun Accesso ai Contatti",
-                description: "CallShield non accede né controlla i tuoi contatti. Elabora solo le notifiche delle chiamate localmente per determinare le azioni di blocco."
+                title: "Contatti protetti",
+                description: "CallShield non condivide né acquisisce informazioni inerenti ai tuoi contatti. Elabora solo le notifiche delle chiamate localmente per determinare le azioni di blocco."
             },
             notificationBased: {
                 title: "Basato su Notifiche",

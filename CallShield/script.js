@@ -791,6 +791,9 @@ class TutorialManager {
             const rect = element.getBoundingClientRect();
             const tooltipRect = tooltip.getBoundingClientRect();
             const spacing = 16;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const margin = 16; // Minimum margin from viewport edges
 
             // Remove all arrow classes and reset arrow styles
             arrow.className = 'tutorial-arrow';
@@ -799,10 +802,54 @@ class TutorialManager {
             arrow.style.right = '';
             arrow.style.bottom = '';
 
-            // 1. Calculate initial tooltip position based on step.position
-            let top, left;
+            // 1. Calculate available space in all directions
+            const spaceTop = rect.top - tooltipRect.height - spacing - margin;
+            const spaceBottom = viewportHeight - rect.bottom - tooltipRect.height - spacing - margin;
+            const spaceLeft = rect.left - tooltipRect.width - spacing - margin;
+            const spaceRight = viewportWidth - rect.right - tooltipRect.width - spacing - margin;
 
+            // 2. Determine best position
+            let finalPosition = step.position || 'bottom';
+            let top, left;
+            let hasEnoughSpace = false;
+
+            // Check if preferred position has enough space
             switch (step.position) {
+                case 'top':
+                    hasEnoughSpace = spaceTop >= 0;
+                    break;
+                case 'bottom':
+                    hasEnoughSpace = spaceBottom >= 0;
+                    break;
+                case 'left':
+                    hasEnoughSpace = spaceLeft >= 0;
+                    break;
+                case 'right':
+                    hasEnoughSpace = spaceRight >= 0;
+                    break;
+            }
+
+            // If preferred position doesn't have space, find best alternative
+            if (!hasEnoughSpace) {
+                const spaces = {
+                    top: spaceTop,
+                    bottom: spaceBottom,
+                    left: spaceLeft,
+                    right: spaceRight
+                };
+                
+                // Find position with most available space
+                let maxSpace = -Infinity;
+                for (const [pos, space] of Object.entries(spaces)) {
+                    if (space > maxSpace) {
+                        maxSpace = space;
+                        finalPosition = pos;
+                    }
+                }
+            }
+
+            // 3. Calculate tooltip position based on final position
+            switch (finalPosition) {
                 case 'top':
                     top = rect.top - tooltipRect.height - spacing;
                     left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
@@ -824,70 +871,84 @@ class TutorialManager {
                     left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
             }
 
-            // 2. Keep tooltip within viewport
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-
-            if (left < 16) left = 16;
-            if (left + tooltipRect.width > viewportWidth - 16) {
-                left = viewportWidth - tooltipRect.width - 16;
+            // 4. Adjust to keep tooltip within viewport (with margin)
+            if (left < margin) left = margin;
+            if (left + tooltipRect.width > viewportWidth - margin) {
+                left = viewportWidth - tooltipRect.width - margin;
             }
 
-            if (top < 16) {
+            if (top < margin) {
+                // If top is too high, try bottom instead
+                if (spaceBottom >= 0) {
+                    top = rect.bottom + spacing;
+                    finalPosition = 'bottom';
+                } else {
+                    top = margin;
+                }
+            }
+            if (top + tooltipRect.height > viewportHeight - margin) {
+                // If bottom is too low, try top instead
+                if (spaceTop >= 0) {
+                    top = rect.top - tooltipRect.height - spacing;
+                    finalPosition = 'top';
+                } else {
+                    top = viewportHeight - tooltipRect.height - margin;
+                }
+            }
+
+            // 5. Verify tooltip doesn't overlap with element (maintain minimum spacing)
+            const tooltipRight = left + tooltipRect.width;
+            const tooltipBottom = top + tooltipRect.height;
+            
+            // Check horizontal overlap
+            if (finalPosition === 'left' && tooltipRight > rect.left - spacing) {
+                left = rect.left - tooltipRect.width - spacing;
+            } else if (finalPosition === 'right' && left < rect.right + spacing) {
+                left = rect.right + spacing;
+            }
+            
+            // Check vertical overlap
+            if (finalPosition === 'top' && tooltipBottom > rect.top - spacing) {
+                top = rect.top - tooltipRect.height - spacing;
+            } else if (finalPosition === 'bottom' && top < rect.bottom + spacing) {
                 top = rect.bottom + spacing;
             }
-            if (top + tooltipRect.height > viewportHeight - 16) {
-                top = rect.top - tooltipRect.height - spacing;
-            }
 
-            // 3. Apply position to tooltip
+            // 6. Apply position to tooltip
             tooltip.style.top = `${top}px`;
             tooltip.style.left = `${left}px`;
             tooltip.style.visibility = 'visible';
 
-            // 4. DOPO aver posizionato il tooltip, calcola orientamento freccia
-            // basandosi sulla posizione FINALE del tooltip rispetto all'elemento
-            const tooltipCenterX = left + tooltipRect.width / 2;
-            const tooltipCenterY = top + tooltipRect.height / 2;
+            // 7. Calculate arrow position based on final tooltip position
+            const tooltipFinalRect = tooltip.getBoundingClientRect();
             const elementCenterX = rect.left + rect.width / 2;
             const elementCenterY = rect.top + rect.height / 2;
+            const arrowSize = 8;
 
-            // Calculate distances from each side of tooltip to element
-            const distTop = Math.abs((top + tooltipRect.height) - rect.top);
-            const distBottom = Math.abs(rect.bottom - top);
-            const distLeft = Math.abs((left + tooltipRect.width) - rect.left);
-            const distRight = Math.abs(rect.right - left);
-
-            // Find the closest side
-            const minDist = Math.min(distTop, distBottom, distLeft, distRight);
-            const arrowSize = 8; // Size of arrow border
-
-            if (minDist === distTop) {
+            // Determine arrow direction based on final position
+            if (finalPosition === 'top' || (tooltipFinalRect.bottom < rect.top && Math.abs(tooltipFinalRect.bottom - rect.top) < Math.abs(tooltipFinalRect.top - rect.bottom))) {
                 // Tooltip is above element, arrow points down (bottom)
                 arrow.className = 'tutorial-arrow bottom';
-                // Position arrow horizontally centered relative to element center
                 const arrowLeft = elementCenterX - left - arrowSize;
-                arrow.style.left = `${Math.max(arrowSize, Math.min(arrowLeft, tooltipRect.width - arrowSize * 2))}px`;
+                arrow.style.left = `${Math.max(arrowSize, Math.min(arrowLeft, tooltipFinalRect.width - arrowSize * 2))}px`;
                 arrow.style.transform = 'translateX(0)';
                 arrow.style.top = '';
                 arrow.style.right = '';
                 arrow.style.bottom = '';
-            } else if (minDist === distBottom) {
+            } else if (finalPosition === 'bottom' || (tooltipFinalRect.top > rect.bottom && Math.abs(tooltipFinalRect.top - rect.bottom) < Math.abs(tooltipFinalRect.bottom - rect.top))) {
                 // Tooltip is below element, arrow points up (top)
                 arrow.className = 'tutorial-arrow top';
-                // Position arrow horizontally centered relative to element center
                 const arrowLeft = elementCenterX - left - arrowSize;
-                arrow.style.left = `${Math.max(arrowSize, Math.min(arrowLeft, tooltipRect.width - arrowSize * 2))}px`;
+                arrow.style.left = `${Math.max(arrowSize, Math.min(arrowLeft, tooltipFinalRect.width - arrowSize * 2))}px`;
                 arrow.style.transform = 'translateX(0)';
                 arrow.style.top = '';
                 arrow.style.right = '';
                 arrow.style.bottom = '';
-            } else if (minDist === distLeft) {
+            } else if (finalPosition === 'left' || (tooltipFinalRect.right < rect.left && Math.abs(tooltipFinalRect.right - rect.left) < Math.abs(tooltipFinalRect.left - rect.right))) {
                 // Tooltip is to the left of element, arrow points right
                 arrow.className = 'tutorial-arrow right';
-                // Position arrow vertically centered relative to element center
                 const arrowTop = elementCenterY - top - arrowSize;
-                arrow.style.top = `${Math.max(arrowSize, Math.min(arrowTop, tooltipRect.height - arrowSize * 2))}px`;
+                arrow.style.top = `${Math.max(arrowSize, Math.min(arrowTop, tooltipFinalRect.height - arrowSize * 2))}px`;
                 arrow.style.transform = 'translateY(0)';
                 arrow.style.left = '';
                 arrow.style.right = '';
@@ -895,9 +956,8 @@ class TutorialManager {
             } else {
                 // Tooltip is to the right of element, arrow points left
                 arrow.className = 'tutorial-arrow left';
-                // Position arrow vertically centered relative to element center
                 const arrowTop = elementCenterY - top - arrowSize;
-                arrow.style.top = `${Math.max(arrowSize, Math.min(arrowTop, tooltipRect.height - arrowSize * 2))}px`;
+                arrow.style.top = `${Math.max(arrowSize, Math.min(arrowTop, tooltipFinalRect.height - arrowSize * 2))}px`;
                 arrow.style.transform = 'translateY(0)';
                 arrow.style.left = '';
                 arrow.style.right = '';
@@ -1102,7 +1162,8 @@ class BlacklistManager {
 
     init() {
         this.setupEventListeners();
-        this.showSubScreen('countries');
+        // Don't call showSubScreen during initialization to avoid forcing blacklist screen activation
+        // The sub-screen will be shown automatically when blacklist screen is selected via ScreenManager
     }
 
     setupEventListeners() {
@@ -1508,8 +1569,35 @@ function simulateTyping(input, text, callback) {
 
 function animateChart(canvas, period = 'daily') {
     const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
+    
+    // Get container dimensions
+    const container = canvas.parentElement;
+    let containerWidth = container.offsetWidth;
+    let containerHeight = container.offsetHeight || 200; // Default height if not set
+    
+    // If container is not visible yet, use default dimensions or wait
+    if (containerWidth === 0) {
+        // Try to get width from computed style or use default
+        const computedStyle = window.getComputedStyle(container);
+        containerWidth = parseFloat(computedStyle.width) || 400;
+        containerHeight = parseFloat(computedStyle.height) || 200;
+    }
+    
+    // Calculate canvas dimensions dynamically
+    // Use container width, maintain aspect ratio (2:1)
+    const width = containerWidth;
+    const height = containerHeight;
+    
+    // Set canvas dimensions (considering device pixel ratio for high DPI displays)
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    
+    // Scale context for high DPI displays
+    ctx.scale(dpr, dpr);
+    
     const padding = 40;
     const chartWidth = width - padding * 2;
     const chartHeight = height - padding * 2;
