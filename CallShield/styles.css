@@ -25,6 +25,7 @@
     --icon-bg-green: #ECFDF5;
     --icon-bg-blue: #EFF6FF;
     --icon-bg-red: #FEF2F2;
+    --icon-bg-purple: #F3E8FF;
     --icon-bg-gray: #F3F4F6;
     
     /* Badge Colors */
@@ -90,6 +91,7 @@ body.dark-mode {
     --icon-bg-green: #1A3A2E;
     --icon-bg-blue: #1E293B;
     --icon-bg-red: #3A1F1F;
+    --icon-bg-purple: #2D1B3D;
     --icon-bg-gray: #2C2B2F;
     
     /* Badge Colors (darker versions) */
@@ -2281,10 +2283,6 @@ body.dark-mode .cta-download .ios-coming-soon {
         grid-template-columns: 1fr;
     }
     
-    .quick-actions-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .screen-content {
         padding: var(--spacing-sm);
     }
@@ -2293,6 +2291,15 @@ body.dark-mode .cta-download .ios-coming-soon {
         grid-template-columns: 1fr;
     }
     
+    .hero-cta {
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-cta-download {
+        width: 100%;
+        align-items: center;
+    }
     
     .cta-title {
         font-size: 2rem;
@@ -2311,6 +2318,12 @@ body.dark-mode .cta-download .ios-coming-soon {
     
     .hero-cta {
         flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-cta-download {
+        width: 100%;
+        align-items: center;
     }
     
     .btn {

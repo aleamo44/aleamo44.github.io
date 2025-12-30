@@ -2123,6 +2123,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.blacklistManager = new BlacklistManager();
     window.tutorialManager = new TutorialManager();
 
+    // Ensure home screen is always shown on page load
+    if (window.screenManager) {
+        window.screenManager.showScreen('home');
+    }
+
     // Setup dark mode
     setupDarkMode();
 
