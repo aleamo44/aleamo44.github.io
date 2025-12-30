@@ -2299,6 +2299,18 @@ body.dark-mode .cta-download .ios-coming-soon {
     .hero-cta-download {
         width: 100%;
         align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-cta-download .btn {
+        width: auto;
+        margin: 0 auto;
+    }
+    
+    .hero-cta-download .ios-coming-soon {
+        text-align: center;
+        width: 100%;
     }
     
     .cta-title {
@@ -2319,11 +2331,24 @@ body.dark-mode .cta-download .ios-coming-soon {
     .hero-cta {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
     
     .hero-cta-download {
         width: 100%;
         align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-cta-download .btn {
+        width: auto;
+        margin: 0 auto;
+    }
+    
+    .hero-cta-download .ios-coming-soon {
+        text-align: center;
+        width: 100%;
     }
     
     .btn {

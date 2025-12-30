@@ -10,7 +10,7 @@ const translations = {
         },
         hero: {
             title: "CallShield",
-            subtitle: "Advanced call blocking for Android. Block spam, telemarketing, and unwanted calls with powerful filtering tools.",
+            subtitle: "Mobile application for advanced call blocking. Block spam, telemarketing, and unwanted calls with powerful filtering tools.",
             downloadBtn: "Download on Google Play",
             iosComingSoon: "iOS coming soon",
             learnMoreBtn: "Learn More",
@@ -257,7 +257,7 @@ const translations = {
         },
         hero: {
             title: "CallShield",
-            subtitle: "Blocco chiamate avanzato per Android. Blocca spam, telemarketing e chiamate indesiderate con potenti strumenti di filtraggio.",
+            subtitle: "Applicazione mobile per blocco chiamate avanzato. Blocca spam, telemarketing e chiamate indesiderate con potenti strumenti di filtraggio.",
             downloadBtn: "Scarica su Google Play",
             iosComingSoon: "iOS in arrivo",
             learnMoreBtn: "Scopri di più",
