@@ -562,19 +562,32 @@
                     <!-- Countries Sub-screen -->
                     <div class="blacklist-sub-screen active" id="blacklist-countries" data-subscreen="countries">
                     <div class="screen-content">
-                        <!-- Header -->
-                        <div class="countries-header">
-                            <div class="countries-title-section">
-                                <h3 class="countries-title" data-i18n="appScreens.blacklist.countries.title">Countries</h3>
-                                <div class="countries-step" data-i18n="appScreens.blacklist.countries.step">Step 1 of 3</div>
+                        <!-- Header with Back, Title with Indicators, and Next Button -->
+                        <div class="blacklist-sub-header">
+                            <div style="width: 40px; height: 40px;"></div>
+                            <div class="blacklist-sub-title-section">
+                                <h3 class="blacklist-sub-title" data-i18n="appScreens.blacklist.countries.title">Countries</h3>
+                                <div class="blacklist-sub-progress">
+                                    <div class="progress-dot active"></div>
+                                    <div class="progress-dot"></div>
+                                    <div class="progress-dot"></div>
+                                </div>
                             </div>
-                            <div class="countries-progress">
-                                <div class="progress-dot active"></div>
-                                <div class="progress-dot"></div>
-                                <div class="progress-dot"></div>
-                            </div>
+                            <button class="blacklist-next-btn" id="countries-next-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 18L15 12L9 6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
                         </div>
-                        <p class="countries-subtitle" data-i18n="appScreens.blacklist.countries.subtitle">Manage call blocking by region.</p>
+
+                        <!-- Title Section -->
+                        <div class="blacklist-title-section">
+                            <div class="blacklist-title-row">
+                                <h3 class="blacklist-main-title" data-i18n="appScreens.blacklist.countries.title">Countries</h3>
+                                <div class="blacklist-step" data-i18n="appScreens.blacklist.countries.step">Step 1 of 3</div>
+                            </div>
+                            <p class="blacklist-subtitle" data-i18n="appScreens.blacklist.countries.subtitle">Manage call blocking by region.</p>
+                        </div>
 
                         <!-- Search Bar -->
                         <div class="card search-card-no-border">

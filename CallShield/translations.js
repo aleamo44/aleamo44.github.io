@@ -81,6 +81,8 @@ const translations = {
             home: {
                 protectionTitle: "Active Protection",
                 protectionDescription: "Spam calls are being automatically blocked.",
+                protectionTitleInactive: "Inactive Protection",
+                protectionDescriptionInactive: "Call blocking is currently disabled. Enable protection to block unwanted calls.",
                 statusEnabled: "ENABLED",
                 statusDisabled: "DISABLED",
                 statsBlockedToday: "Blocked Today",

@@ -1792,6 +1792,16 @@ function setupInteractions() {
         });
     });
 
+    // Next button for Countries screen
+    const countriesNextBtn = document.getElementById('countries-next-btn');
+    if (countriesNextBtn) {
+        countriesNextBtn.addEventListener('click', () => {
+            if (window.blacklistManager) {
+                window.blacklistManager.showSubScreen('numbers');
+            }
+        });
+    }
+
     // Back/Next buttons for Numbers screen
     const numbersBackBtn = document.getElementById('numbers-back-btn');
     const numbersNextBtn = document.getElementById('numbers-next-btn');
