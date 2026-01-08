@@ -2210,6 +2210,175 @@ function setupDarkMode() {
 }
 
 // ============================================
+// Widget Preview Manager
+// ============================================
+function setupWidgetPreviews() {
+    const widget2x2 = document.getElementById('widget-preview-2x2');
+    const widget4x2 = document.getElementById('widget-preview-4x2');
+    const widget4x2Toggle = document.getElementById('widget-4x2-shield');
+    
+    // Widget 2x2 click handler
+    if (widget2x2) {
+        widget2x2.addEventListener('click', () => {
+            toggleWidgetState('2x2');
+        });
+    }
+    
+    // Widget 4x2 toggle section click handler
+    if (widget4x2Toggle) {
+        widget4x2Toggle.closest('.widget-toggle-section')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleWidgetState('4x2');
+        });
+    }
+    
+    // Setup intersection observer for counter animations
+    setupWidgetCounterObserver();
+    
+    // Initial counter animation delay
+    setTimeout(() => {
+        animateWidgetCounters();
+    }, 1000);
+    
+    // Periodic refresh simulation for stats widget
+    setInterval(() => {
+        const widget4x2El = document.getElementById('widget-preview-4x2');
+        if (widget4x2El && isElementInViewport(widget4x2El)) {
+            // Simulate refresh by briefly animating counters
+            const todayEl = document.getElementById('widget-stat-today');
+            const totalEl = document.getElementById('widget-stat-total');
+            if (todayEl && totalEl) {
+                // Small animation to show refresh
+                todayEl.style.transform = 'scale(1.1)';
+                totalEl.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    todayEl.style.transform = 'scale(1)';
+                    totalEl.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }
+    }, 5000);
+}
+
+function toggleWidgetState(widgetType) {
+    const translationManager = window.translationManager;
+    const is2x2 = widgetType === '2x2';
+    
+    const shieldEl = document.getElementById(`widget-${widgetType}-shield`);
+    const statusEl = document.getElementById(`widget-${widgetType}-status`);
+    
+    if (!shieldEl || !statusEl) return;
+    
+    const isActive = shieldEl.classList.contains('active');
+    const newState = !isActive;
+    
+    // Update shield icon
+    if (newState) {
+        shieldEl.classList.remove('inactive');
+        shieldEl.classList.add('active');
+    } else {
+        shieldEl.classList.remove('active');
+        shieldEl.classList.add('inactive');
+    }
+    
+    // Update status text
+    if (newState) {
+        statusEl.classList.remove('inactive');
+        statusEl.classList.add('active');
+        statusEl.textContent = translationManager ? 
+            translationManager.getTranslation('widgets.statusActive') : 'ACTIVE';
+    } else {
+        statusEl.classList.remove('active');
+        statusEl.classList.add('inactive');
+        statusEl.textContent = translationManager ? 
+            translationManager.getTranslation('widgets.statusInactive') : 'INACTIVE';
+    }
+}
+
+function animateWidgetCounter(element, target, duration = 2000) {
+    if (!element) return;
+    
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = formatNumber(target);
+            clearInterval(timer);
+        } else {
+            element.textContent = formatNumber(Math.floor(current));
+        }
+    }, 16);
+}
+
+function animateWidgetCounters() {
+    const todayEl = document.getElementById('widget-stat-today');
+    const totalEl = document.getElementById('widget-stat-total');
+    
+    if (todayEl && !todayEl.dataset.animated) {
+        animateWidgetCounter(todayEl, 12, 2000);
+        todayEl.dataset.animated = 'true';
+    }
+    
+    if (totalEl && !totalEl.dataset.animated) {
+        // Delay total counter slightly
+        setTimeout(() => {
+            animateWidgetCounter(totalEl, 1247, 2500);
+        }, 300);
+        totalEl.dataset.animated = 'true';
+    }
+}
+
+function setupWidgetCounterObserver() {
+    const widget4x2 = document.getElementById('widget-preview-4x2');
+    if (!widget4x2) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Reset animation flags and animate
+                const todayEl = document.getElementById('widget-stat-today');
+                const totalEl = document.getElementById('widget-stat-total');
+                
+                if (todayEl) {
+                    delete todayEl.dataset.animated;
+                    todayEl.textContent = '0';
+                }
+                if (totalEl) {
+                    delete totalEl.dataset.animated;
+                    totalEl.textContent = '0';
+                }
+                
+                // Animate counters
+                setTimeout(() => {
+                    animateWidgetCounters();
+                }, 200);
+                
+                // Unobserve after first animation
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px'
+    });
+    
+    observer.observe(widget4x2);
+}
+
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// ============================================
 // Initialize on DOM Load
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -2233,6 +2402,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setupInteractions();
     setupCTAs();
     setupIntersectionObserver();
+    
+    // Setup widget previews
+    setupWidgetPreviews();
 
     // Initial animations - wait a bit for DOM to be ready
     setTimeout(() => {

@@ -909,6 +909,61 @@
         </div>
     </section>
 
+    <!-- Widgets Section -->
+    <section class="widgets-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="widgets.sectionTitle">Home Screen Widgets</h2>
+            <p class="section-subtitle" data-i18n="widgets.sectionSubtitle">Quick access to CallShield controls right from your home screen</p>
+            
+            <div class="widgets-grid">
+                <!-- Widget 2x2 Toggle -->
+                <div class="widget-preview-card widget-preview-2x2" id="widget-preview-2x2">
+                    <div class="widget-app-name" data-i18n="meta.title">CallShield</div>
+                    <div class="widget-shield-container active" id="widget-2x2-shield">
+                        <svg class="widget-shield-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="widget-status-text active" id="widget-2x2-status" data-i18n="widgets.statusActive">ACTIVE</div>
+                    <p class="feature-description" data-i18n="widgets.toggle.description" style="margin-top: var(--spacing-sm); text-align: center;">Compact widget to quickly enable or disable protection</p>
+                </div>
+
+                <!-- Widget 4x2 Stats -->
+                <div class="widget-preview-card widget-preview-4x2" id="widget-preview-4x2">
+                    <div class="widget-stats-layout">
+                        <!-- Toggle Section -->
+                        <div class="widget-toggle-section">
+                            <div class="widget-app-name" data-i18n="meta.title">CallShield</div>
+                            <div class="widget-shield-container active" id="widget-4x2-shield">
+                                <svg class="widget-shield-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
+                                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="widget-status-text active" id="widget-4x2-status" data-i18n="widgets.statusActive">ACTIVE</div>
+                        </div>
+
+                        <!-- Stats Section -->
+                        <div class="widget-stats-section">
+                            <div class="widget-stat-card">
+                                <div class="widget-stat-label" data-i18n="widgets.blockedToday">Blocked Today</div>
+                                <div class="widget-stat-value" id="widget-stat-today">0</div>
+                            </div>
+                            <div class="widget-stat-card">
+                                <div class="widget-stat-label" data-i18n="widgets.totalBlocked">Total Blocked</div>
+                                <div class="widget-stat-value secondary" id="widget-stat-total">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="feature-description" data-i18n="widgets.stats.description" style="margin-top: var(--spacing-md); text-align: center;">Full widget with toggle and blocking statistics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Tutorial Overlay -->
     <div class="tutorial-overlay" id="tutorial-overlay">
         <div class="tutorial-highlight" id="tutorial-highlight"></div>

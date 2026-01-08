@@ -220,6 +220,23 @@ const translations = {
                 }
             ]
         },
+        widgets: {
+            sectionTitle: "Home Screen Widgets",
+            sectionSubtitle: "Quick access to CallShield controls right from your home screen",
+            toggle: {
+                name: "Toggle Widget (2x2)",
+                description: "Compact widget to quickly enable or disable protection"
+            },
+            stats: {
+                name: "Stats Widget (4x2)",
+                description: "Full widget with toggle and blocking statistics"
+            },
+            statusActive: "ACTIVE",
+            statusInactive: "INACTIVE",
+            blockedToday: "Blocked Today",
+            totalBlocked: "Total Blocked",
+            tapToToggle: "Tap to toggle"
+        },
         cta: {
             title: "Ready to Block Unwanted Calls?",
             subtitle: "Download CallShield now and take control of your incoming calls",
@@ -468,6 +485,23 @@ const translations = {
                     text: "Configura regole di blocco avanzate. Blocca numeri sconosciuti o numeri senza prefisso internazionale."
                 }
             ]
+        },
+        widgets: {
+            sectionTitle: "Widget Schermata Home",
+            sectionSubtitle: "Accesso rapido ai controlli CallShield direttamente dalla schermata home",
+            toggle: {
+                name: "Widget Toggle (2x2)",
+                description: "Widget compatto per attivare o disattivare rapidamente la protezione"
+            },
+            stats: {
+                name: "Widget Statistiche (4x2)",
+                description: "Widget completo con toggle e statistiche di blocco"
+            },
+            statusActive: "ATTIVO",
+            statusInactive: "INATTIVO",
+            blockedToday: "Bloccati Oggi",
+            totalBlocked: "Totale Bloccati",
+            tapToToggle: "Tocca per attivare/disattivare"
         },
         cta: {
             title: "Pronto a Bloccare Chiamate Indesiderate?",
