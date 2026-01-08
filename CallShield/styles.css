@@ -2682,6 +2682,7 @@ body.dark-mode .cta-section {
 
 .widget-preview-4x2 {
     cursor: default;
+    padding: 10px;
 }
 
 .widget-preview-card:hover {
@@ -2698,6 +2699,7 @@ body.dark-mode .cta-section {
     aspect-ratio: 1;
     min-height: 198px;
     max-height: 198px;
+    padding: 10px;
 }
 
 .widget-preview-2x2 .widget-inner {
@@ -2706,28 +2708,29 @@ body.dark-mode .cta-section {
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 7px;
+    padding: 5px;
 }
 
 .widget-app-name {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary);
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 12px;
     letter-spacing: 0.02em;
+    line-height: 1.2;
 }
 
 .widget-shield-container {
-    width: 86px;
-    height: 86px;
+    width: 75px;
+    height: 75px;
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all var(--transition-base);
     position: relative;
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
 .widget-shield-container.active {
@@ -2739,20 +2742,20 @@ body.dark-mode .cta-section {
 }
 
 .widget-shield-container.widget-shield-small {
-    width: 72px;
-    height: 72px;
+    width: 60px;
+    height: 60px;
 }
 
 .widget-shield-icon {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     color: white;
     display: block;
 }
 
 .widget-shield-container.widget-shield-small .widget-shield-icon {
-    width: 43px;
-    height: 43px;
+    width: 36px;
+    height: 36px;
 }
 
 .widget-shield-container.active .widget-shield-icon {
@@ -2771,12 +2774,13 @@ body.dark-mode .cta-section {
 }
 
 .widget-status-text {
-    font-size: 1.45rem;
+    font-size: 1.2rem;
     font-weight: 700;
     text-align: center;
     transition: color var(--transition-base);
-    margin-top: 7px;
+    margin-top: 5px;
     color: #10B981;
+    line-height: 1.2;
 }
 
 .widget-status-text.active {
@@ -2820,7 +2824,7 @@ body.dark-mode .cta-section {
     gap: var(--spacing-sm);
     align-items: center;
     height: 100%;
-    padding: 7px;
+    padding: 5px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -2833,28 +2837,35 @@ body.dark-mode .cta-section {
     flex: 0 0 auto;
     width: 180px;
     gap: 0;
-    padding: 7px;
+    padding: 5px;
     height: 100%;
     box-sizing: border-box;
 }
 
 .widget-toggle-section .widget-app-name {
-    font-size: 1.25rem;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
 }
 
 .widget-toggle-section .widget-status-text {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    margin-top: 5px;
+    line-height: 1.2;
+}
+
+.widget-toggle-section .widget-shield-container {
+    margin-bottom: 5px;
 }
 
 .widget-stats-section {
     display: flex;
     flex-direction: row;
-    gap: 7px;
+    gap: 5px;
     flex: 1;
     align-items: center;
     justify-content: center;
-    padding: 7px;
+    padding: 5px;
     height: 100%;
     box-sizing: border-box;
     min-width: 0;
