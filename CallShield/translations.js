@@ -247,7 +247,7 @@ const translations = {
         footer: {
             tagline: "Advanced call blocking for Android",
             contact: "Contact",
-            copyright: "© 2025 CallShield. All rights reserved."
+            copyright: "© 2026 CallShield. All rights reserved."
         },
         dialogs: {
             edit: {
@@ -514,7 +514,7 @@ const translations = {
         footer: {
             tagline: "Blocco chiamate avanzato per Android",
             contact: "Contatto",
-            copyright: "© 2025 CallShield. Tutti i diritti riservati."
+            copyright: "© 2026 CallShield. Tutti i diritti riservati."
         },
         dialogs: {
             edit: {
