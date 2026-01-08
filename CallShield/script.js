@@ -162,6 +162,22 @@ class TranslationManager {
                 whitelistCount.textContent = `${match[1]} ${activeText}`;
             }
         }
+        
+        // Update widget status texts
+        const widget2x2Status = document.getElementById('widget-2x2-status');
+        const widget4x2Status = document.getElementById('widget-4x2-status');
+        if (widget2x2Status) {
+            const isActive = widget2x2Status.classList.contains('active');
+            widget2x2Status.textContent = isActive ? 
+                this.getTranslation('widgets.statusActive') : 
+                this.getTranslation('widgets.statusInactive');
+        }
+        if (widget4x2Status) {
+            const isActive = widget4x2Status.classList.contains('active');
+            widget4x2Status.textContent = isActive ? 
+                this.getTranslation('widgets.statusActive') : 
+                this.getTranslation('widgets.statusInactive');
+        }
     }
 
     updateLanguageSelector() {
@@ -2215,7 +2231,7 @@ function setupDarkMode() {
 function setupWidgetPreviews() {
     const widget2x2 = document.getElementById('widget-preview-2x2');
     const widget4x2 = document.getElementById('widget-preview-4x2');
-    const widget4x2Toggle = document.getElementById('widget-4x2-shield');
+    const widget4x2ToggleSection = document.getElementById('widget-4x2-toggle-section');
     
     // Widget 2x2 click handler
     if (widget2x2) {
@@ -2225,8 +2241,8 @@ function setupWidgetPreviews() {
     }
     
     // Widget 4x2 toggle section click handler
-    if (widget4x2Toggle) {
-        widget4x2Toggle.closest('.widget-toggle-section')?.addEventListener('click', (e) => {
+    if (widget4x2ToggleSection) {
+        widget4x2ToggleSection.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleWidgetState('4x2');
         });
@@ -2262,7 +2278,6 @@ function setupWidgetPreviews() {
 
 function toggleWidgetState(widgetType) {
     const translationManager = window.translationManager;
-    const is2x2 = widgetType === '2x2';
     
     const shieldEl = document.getElementById(`widget-${widgetType}-shield`);
     const statusEl = document.getElementById(`widget-${widgetType}-status`);
@@ -2281,7 +2296,7 @@ function toggleWidgetState(widgetType) {
         shieldEl.classList.add('inactive');
     }
     
-    // Update status text
+    // Update status text with translation
     if (newState) {
         statusEl.classList.remove('inactive');
         statusEl.classList.add('active');

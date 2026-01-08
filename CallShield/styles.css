@@ -2642,13 +2642,13 @@ body.dark-mode .cta-section {
    Widgets Section
    ============================================ */
 .widgets-section {
-    background-color: var(--surface);
+    background-color: var(--background-light);
     padding: var(--spacing-2xl) 0;
 }
 
 .widgets-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--spacing-xl);
     margin-top: var(--spacing-xl);
     max-width: 1000px;
@@ -2660,33 +2660,33 @@ body.dark-mode .cta-section {
     background-color: var(--surface);
     border: 1px solid var(--outline-variant);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     transition: all var(--transition-base);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .widget-preview-card:hover {
     border-color: var(--primary);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
+/* Widget 2x2 */
 .widget-preview-2x2 {
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.widget-preview-2x2 .widget-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 200px;
-    gap: var(--spacing-md);
-}
-
-.widget-preview-4x2 {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-    min-height: 200px;
+    padding: var(--spacing-sm);
+    min-height: 180px;
 }
 
 .widget-app-name {
@@ -2694,7 +2694,8 @@ body.dark-mode .cta-section {
     font-weight: 700;
     color: var(--primary);
     text-align: center;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
 }
 
 .widget-shield-container {
@@ -2706,6 +2707,7 @@ body.dark-mode .cta-section {
     justify-content: center;
     transition: all var(--transition-base);
     position: relative;
+    margin-bottom: 4px;
 }
 
 .widget-shield-container.active {
@@ -2716,11 +2718,21 @@ body.dark-mode .cta-section {
     background-color: #EF4444;
 }
 
+.widget-shield-container.widget-shield-small {
+    width: 40px;
+    height: 40px;
+}
+
 .widget-shield-icon {
     width: 28px;
     height: 28px;
     color: white;
-    transition: all var(--transition-base);
+    display: block;
+}
+
+.widget-shield-container.widget-shield-small .widget-shield-icon {
+    width: 24px;
+    height: 24px;
 }
 
 .widget-shield-container.active .widget-shield-icon {
@@ -2743,22 +2755,37 @@ body.dark-mode .cta-section {
     font-weight: 700;
     text-align: center;
     transition: color var(--transition-base);
+    margin-top: 4px;
 }
 
 .widget-status-text.active {
-    color: var(--primary);
+    color: var(--on-surface);
 }
 
 .widget-status-text.inactive {
     color: #BA1A1A;
 }
 
-/* Widget 4x2 Layout */
-.widget-stats-layout {
+.widget-description {
+    font-size: 0.875rem;
+    color: var(--on-surface-variant);
+    margin-top: var(--spacing-md);
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Widget 4x2 */
+.widget-preview-4x2 {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.widget-4x2-content {
     display: flex;
     flex-direction: row;
     gap: var(--spacing-md);
-    align-items: flex-start;
+    align-items: center;
+    min-height: 120px;
 }
 
 .widget-toggle-section {
@@ -2766,31 +2793,34 @@ body.dark-mode .cta-section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex: 1;
-    gap: var(--spacing-sm);
+    flex: 0 0 auto;
+    width: 140px;
+    gap: 0;
+    padding: 4px;
 }
 
 .widget-stats-section {
     display: flex;
     flex-direction: row;
-    gap: var(--spacing-sm);
-    flex: 2;
+    gap: 4px;
+    flex: 1;
     align-items: center;
     justify-content: center;
+    padding: 4px;
 }
 
 .widget-stat-card {
     background-color: var(--surface-variant);
     border: 1px solid var(--outline-variant);
     border-radius: var(--radius-md);
-    padding: var(--spacing-sm);
+    padding: 6px;
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-xs);
-    min-height: 80px;
+    gap: 4px;
+    min-height: 70px;
 }
 
 .widget-stat-label {
@@ -2800,6 +2830,7 @@ body.dark-mode .cta-section {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    line-height: 1.2;
 }
 
 .widget-stat-value {
@@ -2808,29 +2839,19 @@ body.dark-mode .cta-section {
     color: var(--primary);
     text-align: center;
     transition: all var(--transition-base);
+    line-height: 1.2;
+    margin-top: 4px;
 }
 
-.widget-stat-value.secondary {
+.widget-stat-value-purple {
     color: var(--icon-purple);
 }
 
-.widget-refresh-icon {
-    position: absolute;
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
-    width: 20px;
-    height: 20px;
-    color: var(--on-surface-variant);
-    opacity: 0.6;
-    transition: transform var(--transition-base);
-}
-
-.widget-refresh-icon:hover {
-    opacity: 1;
-    transform: rotate(180deg);
-}
-
 /* Dark mode adjustments */
+body.dark-mode .widgets-section {
+    background-color: var(--background-light);
+}
+
 body.dark-mode .widget-stat-card {
     background-color: var(--surface-variant);
     border-color: var(--outline-variant);
@@ -2848,13 +2869,24 @@ body.dark-mode .widget-shield-container.inactive {
 @media (max-width: 768px) {
     .widgets-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
     }
     
-    .widget-stats-layout {
+    .widget-preview-2x2,
+    .widget-preview-4x2 {
+        max-width: 100%;
+    }
+    
+    .widget-4x2-content {
         flex-direction: column;
+        gap: var(--spacing-sm);
     }
     
     .widget-stats-section {
+        width: 100%;
+    }
+    
+    .widget-toggle-section {
         width: 100%;
     }
 }
