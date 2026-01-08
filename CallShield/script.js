@@ -178,6 +178,13 @@ class TranslationManager {
                 this.getTranslation('widgets.statusActive') : 
                 this.getTranslation('widgets.statusInactive');
         }
+        
+        // Update refresh button aria-label
+        const refreshBtn = document.getElementById('widget-refresh-btn');
+        if (refreshBtn && refreshBtn.hasAttribute('data-i18n-aria-label')) {
+            const ariaLabelKey = refreshBtn.getAttribute('data-i18n-aria-label');
+            refreshBtn.setAttribute('aria-label', this.getTranslation(ariaLabelKey));
+        }
     }
 
     updateLanguageSelector() {
@@ -2232,6 +2239,7 @@ function setupWidgetPreviews() {
     const widget2x2 = document.getElementById('widget-preview-2x2');
     const widget4x2 = document.getElementById('widget-preview-4x2');
     const widget4x2ToggleSection = document.getElementById('widget-4x2-toggle-section');
+    const refreshBtn = document.getElementById('widget-refresh-btn');
     
     // Widget 2x2 click handler
     if (widget2x2) {
@@ -2248,6 +2256,14 @@ function setupWidgetPreviews() {
         });
     }
     
+    // Refresh button click handler
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            triggerWidgetRefresh();
+        });
+    }
+    
     // Setup intersection observer for counter animations
     setupWidgetCounterObserver();
     
@@ -2260,20 +2276,42 @@ function setupWidgetPreviews() {
     setInterval(() => {
         const widget4x2El = document.getElementById('widget-preview-4x2');
         if (widget4x2El && isElementInViewport(widget4x2El)) {
-            // Simulate refresh by briefly animating counters
-            const todayEl = document.getElementById('widget-stat-today');
-            const totalEl = document.getElementById('widget-stat-total');
-            if (todayEl && totalEl) {
-                // Small animation to show refresh
-                todayEl.style.transform = 'scale(1.1)';
-                totalEl.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    todayEl.style.transform = 'scale(1)';
-                    totalEl.style.transform = 'scale(1)';
-                }, 200);
-            }
+            // Simulate automatic refresh
+            triggerWidgetRefresh(true);
         }
     }, 5000);
+}
+
+function triggerWidgetRefresh(isAutomatic = false) {
+    const refreshBtn = document.getElementById('widget-refresh-btn');
+    if (!refreshBtn) return;
+    
+    // Add refreshing class for animation
+    refreshBtn.classList.add('refreshing');
+    
+    // Animate counters
+    const todayEl = document.getElementById('widget-stat-today');
+    const totalEl = document.getElementById('widget-stat-total');
+    
+    if (todayEl && totalEl) {
+        // Reset and re-animate counters
+        todayEl.textContent = '0';
+        totalEl.textContent = '0';
+        delete todayEl.dataset.animated;
+        delete totalEl.dataset.animated;
+        
+        setTimeout(() => {
+            animateWidgetCounter(todayEl, 12, 1500);
+            setTimeout(() => {
+                animateWidgetCounter(totalEl, 1247, 2000);
+            }, 200);
+        }, 100);
+    }
+    
+    // Remove refreshing class after animation
+    setTimeout(() => {
+        refreshBtn.classList.remove('refreshing');
+    }, 2000);
 }
 
 function toggleWidgetState(widgetType) {

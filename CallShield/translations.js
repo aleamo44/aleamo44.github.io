@@ -231,11 +231,12 @@ const translations = {
                 name: "Stats Widget (4x2)",
                 description: "Full widget with toggle and blocking statistics"
             },
-            statusActive: "ACTIVE",
-            statusInactive: "INACTIVE",
+            statusActive: "ENABLED",
+            statusInactive: "DISABLED",
             blockedToday: "Blocked Today",
             totalBlocked: "Total Blocked",
-            tapToToggle: "Tap to toggle"
+            tapToToggle: "Tap to toggle",
+            refresh: "Refresh"
         },
         cta: {
             title: "Ready to Block Unwanted Calls?",
@@ -497,11 +498,12 @@ const translations = {
                 name: "Widget Statistiche (4x2)",
                 description: "Widget completo con toggle e statistiche di blocco"
             },
-            statusActive: "ATTIVO",
-            statusInactive: "INATTIVO",
+            statusActive: "ATTIVATO",
+            statusInactive: "DISATTIVATO",
             blockedToday: "Bloccati Oggi",
             totalBlocked: "Totale Bloccati",
-            tapToToggle: "Tocca per attivare/disattivare"
+            tapToToggle: "Tocca per attivare/disattivare",
+            refresh: "Aggiorna"
         },
         cta: {
             title: "Pronto a Bloccare Chiamate Indesiderate?",

@@ -917,44 +917,54 @@
             
             <div class="widgets-grid">
                 <!-- Widget 2x2 Toggle -->
-                <div class="widget-preview-card widget-preview-2x2" id="widget-preview-2x2">
-                    <div class="widget-inner">
-                        <div class="widget-app-name">CallShield</div>
-                        <div class="widget-shield-container active" id="widget-2x2-shield">
-                            <svg class="widget-shield-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12,1L3,5v6c0,5.55 3.84,10.74 9,12 5.16,-1.26 9,-6.45 9,-12V5L12,1z" fill="currentColor"/>
-                            </svg>
+                <div class="widget-item">
+                    <div class="widget-preview-card widget-preview-2x2" id="widget-preview-2x2">
+                        <div class="widget-inner">
+                            <div class="widget-app-name">CallShield</div>
+                            <div class="widget-shield-container active" id="widget-2x2-shield">
+                                <svg class="widget-shield-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12,1L3,5v6c0,5.55 3.84,10.74 9,12 5.16,-1.26 9,-6.45 9,-12V5L12,1z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="widget-status-text active" id="widget-2x2-status" data-i18n="widgets.statusActive">ENABLED</div>
                         </div>
-                        <div class="widget-status-text active" id="widget-2x2-status" data-i18n="widgets.statusActive">ACTIVE</div>
                     </div>
                     <p class="widget-description" data-i18n="widgets.toggle.description">Compact widget to quickly enable or disable protection</p>
                 </div>
 
                 <!-- Widget 4x2 Stats -->
-                <div class="widget-preview-card widget-preview-4x2" id="widget-preview-4x2">
-                    <div class="widget-4x2-content">
-                        <!-- Toggle Section -->
-                        <div class="widget-toggle-section" id="widget-4x2-toggle-section">
-                            <div class="widget-app-name">CallShield</div>
-                            <div class="widget-shield-container active widget-shield-small" id="widget-4x2-shield">
-                                <svg class="widget-shield-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12,1L3,5v6c0,5.55 3.84,10.74 9,12 5.16,-1.26 9,-6.45 9,-12V5L12,1z" fill="currentColor"/>
-                                </svg>
+                <div class="widget-item">
+                    <div class="widget-preview-card widget-preview-4x2" id="widget-preview-4x2">
+                        <div class="widget-4x2-content">
+                            <!-- Toggle Section -->
+                            <div class="widget-toggle-section" id="widget-4x2-toggle-section">
+                                <div class="widget-app-name">CallShield</div>
+                                <div class="widget-shield-container active widget-shield-small" id="widget-4x2-shield">
+                                    <svg class="widget-shield-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12,1L3,5v6c0,5.55 3.84,10.74 9,12 5.16,-1.26 9,-6.45 9,-12V5L12,1z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <div class="widget-status-text active" id="widget-4x2-status" data-i18n="widgets.statusActive">ENABLED</div>
                             </div>
-                            <div class="widget-status-text active" id="widget-4x2-status" data-i18n="widgets.statusActive">ACTIVE</div>
-                        </div>
 
-                        <!-- Stats Section -->
-                        <div class="widget-stats-section">
-                            <div class="widget-stat-card">
-                                <div class="widget-stat-label" data-i18n="widgets.blockedToday">Blocked Today</div>
-                                <div class="widget-stat-value" id="widget-stat-today">0</div>
-                            </div>
-                            <div class="widget-stat-card">
-                                <div class="widget-stat-label" data-i18n="widgets.totalBlocked">Total Blocked</div>
-                                <div class="widget-stat-value widget-stat-value-purple" id="widget-stat-total">0</div>
+                            <!-- Stats Section -->
+                            <div class="widget-stats-section">
+                                <div class="widget-stat-card">
+                                    <div class="widget-stat-label" data-i18n="widgets.blockedToday">Blocked Today</div>
+                                    <div class="widget-stat-value" id="widget-stat-today">0</div>
+                                </div>
+                                <div class="widget-stat-card">
+                                    <div class="widget-stat-label" data-i18n="widgets.totalBlocked">Total Blocked</div>
+                                    <div class="widget-stat-value widget-stat-value-purple" id="widget-stat-total">0</div>
+                                </div>
                             </div>
                         </div>
+                        <!-- Refresh Button -->
+                        <button class="widget-refresh-button" id="widget-refresh-btn" aria-label="Refresh" data-i18n-aria-label="widgets.refresh">
+                            <svg class="widget-refresh-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4V1L8 5L12 9V6C15.31 6 18 8.69 18 12C18 15.31 15.31 18 12 18C8.69 18 6 15.31 6 12H4C4 16.42 7.58 20 12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4Z" fill="currentColor"/>
+                            </svg>
+                        </button>
                     </div>
                     <p class="widget-description" data-i18n="widgets.stats.description">Full widget with toggle and blocking statistics</p>
                 </div>
