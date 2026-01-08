@@ -88,6 +88,12 @@ class TranslationManager {
     }
 
     translateElement(element) {
+        // Skip widget status elements - they are handled separately in translateAll()
+        const widgetStatusIds = ['widget-2x2-status', 'widget-4x2-status'];
+        if (widgetStatusIds.includes(element.id)) {
+            return;
+        }
+        
         // Handle data-i18n attribute
         const i18nKey = element.getAttribute('data-i18n');
         if (i18nKey) {
@@ -2339,12 +2345,12 @@ function toggleWidgetState(widgetType) {
         statusEl.classList.remove('inactive');
         statusEl.classList.add('active');
         statusEl.textContent = translationManager ? 
-            translationManager.getTranslation('widgets.statusActive') : 'ACTIVE';
+            translationManager.getTranslation('widgets.statusActive') : 'ENABLED';
     } else {
         statusEl.classList.remove('active');
         statusEl.classList.add('inactive');
         statusEl.textContent = translationManager ? 
-            translationManager.getTranslation('widgets.statusInactive') : 'INACTIVE';
+            translationManager.getTranslation('widgets.statusInactive') : 'DISABLED';
     }
 }
 

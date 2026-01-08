@@ -225,11 +225,11 @@ const translations = {
             sectionSubtitle: "Quick access to CallShield controls right from your home screen",
             toggle: {
                 name: "Toggle Widget (2x2)",
-                description: "Compact widget to quickly enable or disable protection"
+                description: "Compact 2x2 widget to quickly enable or disable protection"
             },
             stats: {
                 name: "Stats Widget (4x2)",
-                description: "Full widget with toggle and blocking statistics"
+                description: "Full 4x2 widget with toggle and blocking statistics"
             },
             statusActive: "ENABLED",
             statusInactive: "DISABLED",
@@ -492,11 +492,11 @@ const translations = {
             sectionSubtitle: "Accesso rapido ai controlli CallShield direttamente dalla schermata home",
             toggle: {
                 name: "Widget Toggle (2x2)",
-                description: "Widget compatto per attivare o disattivare rapidamente la protezione"
+                description: "Widget compatto 2x2 per attivare o disattivare rapidamente la protezione"
             },
             stats: {
                 name: "Widget Statistiche (4x2)",
-                description: "Widget completo con toggle e statistiche di blocco"
+                description: "Widget completo 4x2 con toggle e statistiche di blocco"
             },
             statusActive: "ATTIVATO",
             statusInactive: "DISATTIVATO",

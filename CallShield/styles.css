@@ -2670,8 +2670,9 @@ body.dark-mode .cta-section {
     padding: 8px;
     transition: all var(--transition-base);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
 }
 
 .widget-preview-2x2 {
@@ -2694,6 +2695,8 @@ body.dark-mode .cta-section {
     height: 110px;
     margin: 0 auto;
     aspect-ratio: 1;
+    min-height: 110px;
+    max-height: 110px;
 }
 
 .widget-preview-2x2 .widget-inner {
@@ -2772,14 +2775,15 @@ body.dark-mode .cta-section {
     text-align: center;
     transition: color var(--transition-base);
     margin-top: 4px;
-}
-
-.widget-status-text.active {
     color: #10B981;
 }
 
+.widget-status-text.active {
+    color: #10B981 !important;
+}
+
 .widget-status-text.inactive {
-    color: #EF4444;
+    color: #EF4444 !important;
 }
 
 .widget-title {
@@ -2805,6 +2809,8 @@ body.dark-mode .cta-section {
     height: 110px;
     margin: 0 auto;
     aspect-ratio: 250/110;
+    min-height: 110px;
+    max-height: 110px;
 }
 
 .widget-4x2-content {
@@ -2814,6 +2820,8 @@ body.dark-mode .cta-section {
     align-items: center;
     height: 100%;
     padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .widget-toggle-section {
@@ -2826,6 +2834,7 @@ body.dark-mode .cta-section {
     gap: 0;
     padding: 4px;
     height: 100%;
+    box-sizing: border-box;
 }
 
 .widget-stats-section {
@@ -2837,6 +2846,8 @@ body.dark-mode .cta-section {
     justify-content: center;
     padding: 4px;
     height: 100%;
+    box-sizing: border-box;
+    min-width: 0;
 }
 
 .widget-stat-card {
@@ -2850,8 +2861,8 @@ body.dark-mode .cta-section {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    height: auto;
-    align-self: center;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .widget-stat-label {
@@ -2889,12 +2900,14 @@ body.dark-mode .cta-section {
     border: none;
     background: transparent;
     cursor: pointer;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-full);
     transition: all var(--transition-base);
     opacity: 0.6;
+    z-index: 100;
+    margin: 0;
 }
 
 .widget-refresh-button:hover {
@@ -2907,6 +2920,7 @@ body.dark-mode .cta-section {
     height: 20px;
     color: var(--on-surface-variant);
     transition: transform var(--transition-base);
+    display: block;
 }
 
 .widget-refresh-button.refreshing .widget-refresh-icon {
