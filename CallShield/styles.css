@@ -2782,12 +2782,21 @@ body.dark-mode .cta-section {
     color: #EF4444;
 }
 
+.widget-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--on-surface);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
 .widget-description {
     font-size: 0.875rem;
     color: var(--on-surface-variant);
     text-align: center;
     line-height: 1.5;
     max-width: 300px;
+    margin-top: var(--spacing-md);
 }
 
 /* Widget 4x2 - Rettangolo 250dp x 110dp (rapporto ~2.27:1) */
