@@ -2667,7 +2667,7 @@ body.dark-mode .cta-section {
     background-color: var(--surface);
     border: 1px solid var(--outline-variant);
     border-radius: var(--radius-lg);
-    padding: 8px;
+    padding: 14px;
     transition: all var(--transition-base);
     position: relative;
     overflow: visible;
@@ -2689,14 +2689,14 @@ body.dark-mode .cta-section {
     box-shadow: var(--shadow-md);
 }
 
-/* Widget 2x2 - Quadrato 110dp x 110dp */
+/* Widget 2x2 - Quadrato 110dp x 110dp (scaled 1.8x for web) */
 .widget-preview-2x2 {
-    width: 110px;
-    height: 110px;
+    width: 198px;
+    height: 198px;
     margin: 0 auto;
     aspect-ratio: 1;
-    min-height: 110px;
-    max-height: 110px;
+    min-height: 198px;
+    max-height: 198px;
 }
 
 .widget-preview-2x2 .widget-inner {
@@ -2705,28 +2705,28 @@ body.dark-mode .cta-section {
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 4px;
+    padding: 7px;
 }
 
 .widget-app-name {
-    font-size: 0.875rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
     text-align: center;
-    margin-bottom: 14px;
+    margin-bottom: 25px;
     letter-spacing: 0.02em;
 }
 
 .widget-shield-container {
-    width: 48px;
-    height: 48px;
+    width: 86px;
+    height: 86px;
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all var(--transition-base);
     position: relative;
-    margin-bottom: 4px;
+    margin-bottom: 7px;
 }
 
 .widget-shield-container.active {
@@ -2738,20 +2738,20 @@ body.dark-mode .cta-section {
 }
 
 .widget-shield-container.widget-shield-small {
-    width: 40px;
-    height: 40px;
+    width: 72px;
+    height: 72px;
 }
 
 .widget-shield-icon {
-    width: 28px;
-    height: 28px;
+    width: 50px;
+    height: 50px;
     color: white;
     display: block;
 }
 
 .widget-shield-container.widget-shield-small .widget-shield-icon {
-    width: 24px;
-    height: 24px;
+    width: 43px;
+    height: 43px;
 }
 
 .widget-shield-container.active .widget-shield-icon {
@@ -2770,11 +2770,11 @@ body.dark-mode .cta-section {
 }
 
 .widget-status-text {
-    font-size: 0.8125rem;
+    font-size: 1.45rem;
     font-weight: 700;
     text-align: center;
     transition: color var(--transition-base);
-    margin-top: 4px;
+    margin-top: 7px;
     color: #10B981;
 }
 
@@ -2803,14 +2803,14 @@ body.dark-mode .cta-section {
     margin-top: var(--spacing-md);
 }
 
-/* Widget 4x2 - Rettangolo 250dp x 110dp (rapporto ~2.27:1) */
+/* Widget 4x2 - Rettangolo 250dp x 110dp (scaled 1.8x for web) */
 .widget-preview-4x2 {
-    width: 250px;
-    height: 110px;
+    width: 450px;
+    height: 198px;
     margin: 0 auto;
     aspect-ratio: 250/110;
-    min-height: 110px;
-    max-height: 110px;
+    min-height: 198px;
+    max-height: 198px;
 }
 
 .widget-4x2-content {
@@ -2819,7 +2819,7 @@ body.dark-mode .cta-section {
     gap: var(--spacing-sm);
     align-items: center;
     height: 100%;
-    padding: 4px;
+    padding: 7px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -2830,9 +2830,9 @@ body.dark-mode .cta-section {
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    width: 100px;
+    width: 180px;
     gap: 0;
-    padding: 4px;
+    padding: 7px;
     height: 100%;
     box-sizing: border-box;
 }
@@ -2840,11 +2840,11 @@ body.dark-mode .cta-section {
 .widget-stats-section {
     display: flex;
     flex-direction: row;
-    gap: 4px;
+    gap: 7px;
     flex: 1;
     align-items: center;
     justify-content: center;
-    padding: 4px;
+    padding: 7px;
     height: 100%;
     box-sizing: border-box;
     min-width: 0;
@@ -2854,19 +2854,19 @@ body.dark-mode .cta-section {
     background-color: var(--surface-variant);
     border: 1px solid var(--outline-variant);
     border-radius: var(--radius-md);
-    padding: 6px;
+    padding: 11px;
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 7px;
     min-width: 0;
     box-sizing: border-box;
 }
 
 .widget-stat-label {
-    font-size: 0.5625rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--on-surface-variant);
     text-align: center;
@@ -2876,13 +2876,13 @@ body.dark-mode .cta-section {
 }
 
 .widget-stat-value {
-    font-size: 1.375rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--primary);
     text-align: center;
     transition: all var(--transition-base);
     line-height: 1.2;
-    margin-top: 4px;
+    margin-top: 7px;
 }
 
 .widget-stat-value-purple {
@@ -2892,11 +2892,11 @@ body.dark-mode .cta-section {
 /* Refresh Button */
 .widget-refresh-button {
     position: absolute;
-    top: 2px;
-    right: 2px;
-    width: 24px;
-    height: 24px;
-    padding: 2px;
+    top: 4px;
+    right: 4px;
+    width: 43px;
+    height: 43px;
+    padding: 4px;
     border: none;
     background: transparent;
     cursor: pointer;
@@ -2916,8 +2916,8 @@ body.dark-mode .cta-section {
 }
 
 .widget-refresh-icon {
-    width: 20px;
-    height: 20px;
+    width: 36px;
+    height: 36px;
     color: var(--on-surface-variant);
     transition: transform var(--transition-base);
     display: block;
