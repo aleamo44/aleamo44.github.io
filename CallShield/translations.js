@@ -87,15 +87,6 @@ const translations = {
                 statusDisabled: "DISABLED",
                 statsBlockedToday: "Blocked Today",
                 statsTotalBlocked: "Total Blocked",
-                quickActions: "Quick Actions",
-                whitelistAction: "Whitelist",
-                whitelistSubtitle: "Safe numbers",
-                countriesAction: "Countries",
-                countriesSubtitle: "Geo-block",
-                numbersAction: "Numbers",
-                numbersSubtitle: "Blacklist",
-                settingsAction: "Settings",
-                settingsSubtitle: "Rules & Prefs",
                 recentActivity: "Recent Activity",
                 seeAll: "See All",
                 blocked: "Blocked"
@@ -108,9 +99,9 @@ const translations = {
                 active: "Active"
             },
             statistics: {
-                today: "Today",
-                total: "Total",
-                activity: "Activity",
+                today: "Blocked Today",
+                total: "Total Blocked",
+                activity: "History",
                 daily: "Daily",
                 weekly: "Weekly",
                 monthly: "Monthly",
@@ -169,10 +160,6 @@ const translations = {
                 {
                     title: "Statistics",
                     text: "View your blocking statistics here. See how many calls were blocked today and in total. The progress bars show your blocking activity."
-                },
-                {
-                    title: "Quick Actions",
-                    text: "Access key features quickly from here. Tap on any card to navigate to Whitelist, Countries, Numbers, or Settings."
                 },
                 {
                     title: "Recent Activity",
@@ -354,15 +341,6 @@ const translations = {
                 statusDisabled: "DISATTIVO",
                 statsBlockedToday: "Bloccate Oggi",
                 statsTotalBlocked: "Totale Bloccate",
-                quickActions: "Azioni Rapide",
-                whitelistAction: "Whitelist",
-                whitelistSubtitle: "Numeri sicuri",
-                countriesAction: "Paesi",
-                countriesSubtitle: "Blocco geografico",
-                numbersAction: "Numeri",
-                numbersSubtitle: "Blacklist",
-                settingsAction: "Impostazioni",
-                settingsSubtitle: "Regole e Pref.",
                 recentActivity: "Attività Recente",
                 seeAll: "Vedi Tutto",
                 blocked: "Bloccato"
@@ -375,9 +353,9 @@ const translations = {
                 active: "Attivi"
             },
             statistics: {
-                today: "Oggi",
-                total: "Totale",
-                activity: "Attività",
+                today: "Bloccati oggi",
+                total: "Totale bloccati",
+                activity: "Storico",
                 daily: "Giornaliero",
                 weekly: "Settimanale",
                 monthly: "Mensile",
@@ -436,10 +414,6 @@ const translations = {
                 {
                     title: "Statistiche",
                     text: "Visualizza le tue statistiche di blocco qui. Vedi quante chiamate sono state bloccate oggi e in totale. Le barre di avanzamento mostrano la tua attività di blocco."
-                },
-                {
-                    title: "Azioni Rapide",
-                    text: "Accedi rapidamente alle funzionalità chiave da qui. Tocca su qualsiasi scheda per navigare a Whitelist, Paesi, Numeri o Impostazioni."
                 },
                 {
                     title: "Attività Recente",

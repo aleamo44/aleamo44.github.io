@@ -236,11 +236,26 @@ class TutorialManager {
         const translationManager = window.translationManager;
         if (!translationManager) {
             // Fallback to English if translation manager not available
+            console.warn('[Tutorial] TranslationManager not available, using fallback');
             this.setupStepsFallback();
             return;
         }
 
-        const t = translationManager.translations[translationManager.currentLanguage];
+        if (!translationManager.translations) {
+            console.error('[Tutorial] TranslationManager translations not available');
+            this.setupStepsFallback();
+            return;
+        }
+
+        const currentLang = translationManager.currentLanguage || 'en';
+        const t = translationManager.translations[currentLang];
+        
+        if (!t || !t.tutorial || !t.tutorial.steps) {
+            console.error('[Tutorial] Tutorial steps not found in translations');
+            this.setupStepsFallback();
+            return;
+        }
+        
         const steps = t.tutorial.steps;
         
         this.steps = [
@@ -260,86 +275,79 @@ class TutorialManager {
             },
             {
                 screen: 'home',
-                element: '.quick-actions-grid',
+                element: '.recent-activity-list',
                 title: steps[2].title,
                 text: steps[2].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'home',
-                element: '.recent-activity-list',
-                title: steps[3].title,
-                text: steps[3].text,
                 position: 'top'
             },
             {
                 screen: 'whitelist',
                 element: '.search-card',
+                title: steps[3].title,
+                text: steps[3].text,
+                position: 'bottom'
+            },
+            {
+                screen: 'whitelist',
+                element: '.allow-contacts-card',
                 title: steps[4].title,
                 text: steps[4].text,
                 position: 'bottom'
             },
             {
                 screen: 'whitelist',
-                element: '.allow-contacts-card',
+                element: '.whitelist-section',
                 title: steps[5].title,
                 text: steps[5].text,
                 position: 'bottom'
             },
             {
-                screen: 'whitelist',
-                element: '.whitelist-section',
+                screen: 'statistics',
+                element: '.chart-card',
                 title: steps[6].title,
                 text: steps[6].text,
                 position: 'bottom'
             },
             {
                 screen: 'statistics',
-                element: '.chart-card',
+                element: '.top-origins-card',
                 title: steps[7].title,
                 text: steps[7].text,
                 position: 'bottom'
             },
             {
-                screen: 'statistics',
-                element: '.top-origins-card',
+                screen: 'blacklist',
+                element: '.blacklist-sub-nav',
                 title: steps[8].title,
                 text: steps[8].text,
                 position: 'bottom'
             },
             {
                 screen: 'blacklist',
-                element: '.blacklist-sub-nav',
+                element: '#blacklist-countries .filter-chips',
                 title: steps[9].title,
                 text: steps[9].text,
                 position: 'bottom'
             },
             {
                 screen: 'blacklist',
-                element: '#blacklist-countries .filter-chips',
+                element: '#blacklist-countries .country-item',
                 title: steps[10].title,
                 text: steps[10].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'blacklist',
-                element: '#blacklist-countries .country-item',
-                title: steps[11].title,
-                text: steps[11].text,
                 position: 'left'
             },
             {
                 screen: 'blacklist',
                 element: '#blacklist-numbers',
-                title: steps[12].title,
-                text: steps[12].text,
+                title: steps[11].title,
+                text: steps[11].text,
                 position: 'bottom'
             },
             {
                 screen: 'blacklist',
                 element: '#blacklist-settings',
-                title: steps[13].title,
-                text: steps[13].text,
+                title: steps[12].title,
+                text: steps[12].text,
                 position: 'bottom'
             }
         ];
@@ -365,13 +373,6 @@ class TutorialManager {
                 element: '.stats-cards-row',
                 title: 'Statistics',
                 text: 'View your blocking statistics here. See how many calls were blocked today and in total. The progress bars show your blocking activity.',
-                position: 'bottom'
-            },
-            {
-                screen: 'home',
-                element: '.quick-actions-grid',
-                title: 'Quick Actions',
-                text: 'Access key features quickly from here. Tap on any card to navigate to Whitelist, Countries, Numbers, or Settings.',
                 position: 'bottom'
             },
             {
@@ -507,6 +508,17 @@ class TutorialManager {
     }
 
     start() {
+        // Assicurati che this.steps sia inizializzato
+        if (!this.steps || this.steps.length === 0) {
+            console.warn('[Tutorial] Steps array is empty, initializing...');
+            this.updateTranslations();
+            if (!this.steps || this.steps.length === 0) {
+                console.error('[Tutorial] Failed to initialize steps!');
+                alert('Tutorial initialization failed. Please refresh the page.');
+                return;
+            }
+        }
+        
         this.currentStep = 0;
         this.isActive = true;
         // Block scroll
@@ -526,6 +538,11 @@ class TutorialManager {
     }
 
     next() {
+        if (!this.steps || this.steps.length === 0) {
+            console.error('[Tutorial] Steps array is empty in next()!');
+            return;
+        }
+        
         if (this.currentStep < this.steps.length - 1) {
             this.currentStep++;
             this.showStep();
@@ -535,6 +552,11 @@ class TutorialManager {
     }
 
     previous() {
+        if (!this.steps || this.steps.length === 0) {
+            console.error('[Tutorial] Steps array is empty in previous()!');
+            return;
+        }
+        
         if (this.currentStep > 0) {
             this.currentStep--;
             this.showStep();
@@ -542,8 +564,21 @@ class TutorialManager {
     }
 
     showStep(retryCount = 0) {
+        // Assicurati che this.steps sia inizializzato
+        if (!this.steps || this.steps.length === 0) {
+            console.error('[Tutorial] Steps array is empty in showStep!');
+            this.updateTranslations();
+            if (!this.steps || this.steps.length === 0) {
+                console.error('[Tutorial] Failed to initialize steps in showStep!');
+                return;
+            }
+        }
+        
         const step = this.steps[this.currentStep];
-        if (!step) return;
+        if (!step) {
+            console.error(`[Tutorial] Step ${this.currentStep} not found! Total steps: ${this.steps.length}`);
+            return;
+        }
 
         console.log(`[Tutorial] showStep called - Step ${this.currentStep}, Retry ${retryCount}, Element: ${step.element}`);
 
@@ -1702,50 +1737,6 @@ function setupInteractions() {
             updateProtectionCard(e.target.checked);
         });
     }
-
-    // Quick Actions click simulation
-    const quickActionCards = document.querySelectorAll('.quick-action-card');
-    quickActionCards.forEach(card => {
-        // Use event delegation or ensure single listener
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const action = this.dataset.action;
-            
-            if (window.screenManager) {
-                switch (action) {
-                    case 'whitelist':
-                        window.screenManager.showScreen('whitelist');
-                        break;
-                    case 'countries':
-                        window.screenManager.showScreen('blacklist');
-                        setTimeout(() => {
-                            if (window.blacklistManager) {
-                                window.blacklistManager.showSubScreen('countries');
-                            }
-                        }, 350);
-                        break;
-                    case 'numbers':
-                        window.screenManager.showScreen('blacklist');
-                        setTimeout(() => {
-                            if (window.blacklistManager) {
-                                window.blacklistManager.showSubScreen('numbers');
-                            }
-                        }, 350);
-                        break;
-                    case 'settings':
-                        window.screenManager.showScreen('blacklist');
-                        setTimeout(() => {
-                            if (window.blacklistManager) {
-                                window.blacklistManager.showSubScreen('settings');
-                            }
-                        }, 350);
-                        break;
-                }
-            }
-        }, { once: false });
-    });
 
     // Period chip switching
     const periodChips = document.querySelectorAll('.period-chip');

@@ -1020,61 +1020,6 @@ body.dark-mode .cta-download .ios-coming-soon {
 }
 
 /* ============================================
-   Quick Actions
-   ============================================ */
-.quick-actions-section {
-    margin-bottom: var(--spacing-xl);
-}
-
-.quick-actions-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xs);
-}
-
-.quick-action-card {
-    padding: var(--spacing-md);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    cursor: pointer;
-    transition: all var(--transition-base);
-}
-
-.quick-action-card:hover {
-    background-color: var(--primary-container);
-    border-color: var(--primary);
-    transform: translateY(-2px);
-}
-
-.quick-action-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.quick-action-text {
-    flex: 1;
-    min-width: 0;
-}
-
-.quick-action-title {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: var(--on-surface);
-    margin-bottom: 2px;
-}
-
-.quick-action-subtitle {
-    font-size: 0.75rem;
-    color: var(--on-surface-variant);
-}
-
-/* ============================================
    Recent Activity
    ============================================ */
 .recent-activity-section {
