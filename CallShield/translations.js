@@ -113,7 +113,7 @@ const translations = {
             blacklist: {
                 countries: {
                     title: "Countries",
-                    step: "Step 1 of 3",
+                    step: "Step 1 of 4",
                     subtitle: "Manage call blocking by region.",
                     searchPlaceholder: "Search countries or codes…",
                     filterAll: "All",
@@ -125,7 +125,7 @@ const translations = {
                 },
                 numbers: {
                     title: "Numbers",
-                    step: "Step 2 of 3",
+                    step: "Step 2 of 4",
                     subtitle: "Manage blocked phone numbers.",
                     searchPlaceholder: "Search numbers…",
                     footerInfo: "Calls from these numbers will be automatically rejected and logged in your Stats.",
@@ -133,7 +133,7 @@ const translations = {
                 },
                 settings: {
                     title: "Settings",
-                    step: "Step 3 of 3",
+                    step: "Step 3 of 4",
                     unknownNumbers: {
                         title: "Unknown Numbers",
                         description: "Automatically block incoming calls from numbers that are not saved in your contacts list. Use with caution."
@@ -142,7 +142,29 @@ const translations = {
                         title: "Unknown Countries",
                         description: "Block calls from numbers that do not have a valid international prefix. This helps prevent spoofed calls."
                     },
+                    hiddenNumbers: {
+                        title: "Hidden Numbers",
+                        description: "Automatically block incoming calls that do not show the caller ID (private or unknown numbers)."
+                    },
+                    repeatedCalls: {
+                        title: "Repeated Calls",
+                        description: "If a blocked number calls back within the set time interval, let the call through. Useful for urgent calls.",
+                        minutesLabel: "Minutes"
+                    },
                     footerInfo: "Blocked calls will appear in your history but your phone will not ring."
+                },
+                provinces: {
+                    title: "Italian Provinces",
+                    step: "Step 4 of 4",
+                    subtitle: "Manage call blocking by Italian area code.",
+                    searchPlaceholder: "Search provinces or codes…",
+                    filterAll: "All",
+                    filterBlocked: "Blocked",
+                    filterAllowed: "Allowed",
+                    blockAll: "Block All",
+                    allowAll: "Allow All",
+                    hint: "Click on the icons to block or unblock provinces",
+                    footerInfo: "Configure which Italian provinces (area codes) to allow or block. This applies only when Italy is allowed in the Countries section. Calls from blocked provinces will be rejected."
                 }
             }
         },
@@ -187,7 +209,7 @@ const translations = {
                 },
                 {
                     title: "Blacklist Navigation",
-                    text: "The Blacklist section has three parts: Countries, Numbers, and Settings. Use these tabs to navigate between different blocking options."
+                    text: "The Blacklist section has four parts: Countries, Numbers, Settings, and Italian Provinces. Use the back and next buttons to move between them."
                 },
                 {
                     title: "Filter Countries",
@@ -204,6 +226,10 @@ const translations = {
                 {
                     title: "Blacklist Settings",
                     text: "Configure advanced blocking rules. Block unknown numbers or numbers without international prefix."
+                },
+                {
+                    title: "Italian Provinces",
+                    text: "Manage call blocking by Italian area code. Filter by All, Blocked, or Allowed. Use Block All or Allow All for quick changes, or tap each province to toggle."
                 }
             ]
         },
@@ -367,7 +393,7 @@ const translations = {
             blacklist: {
                 countries: {
                     title: "Paesi",
-                    step: "Passo 1 di 3",
+                    step: "Passo 1 di 4",
                     subtitle: "Gestisci il blocco delle chiamate per regione.",
                     searchPlaceholder: "Cerca paesi o codici…",
                     filterAll: "Tutti",
@@ -379,7 +405,7 @@ const translations = {
                 },
                 numbers: {
                     title: "Numeri",
-                    step: "Passo 2 di 3",
+                    step: "Passo 2 di 4",
                     subtitle: "Gestisci i numeri di telefono bloccati.",
                     searchPlaceholder: "Cerca numeri…",
                     footerInfo: "Le chiamate da questi numeri verranno automaticamente rifiutate e registrate nelle tue Statistiche.",
@@ -387,7 +413,7 @@ const translations = {
                 },
                 settings: {
                     title: "Impostazioni",
-                    step: "Passo 3 di 3",
+                    step: "Passo 3 di 4",
                     unknownNumbers: {
                         title: "Numeri Sconosciuti",
                         description: "Blocca automaticamente le chiamate in arrivo da numeri non salvati nella tua lista contatti. Usa con cautela."
@@ -396,7 +422,29 @@ const translations = {
                         title: "Paesi Sconosciuti",
                         description: "Blocca le chiamate da numeri che non hanno un prefisso internazionale valido. Questo aiuta a prevenire chiamate contraffatte."
                     },
+                    hiddenNumbers: {
+                        title: "Numeri nascosti",
+                        description: "Blocca automaticamente le chiamate in arrivo che non mostrano il numero (numeri privati o sconosciuti)."
+                    },
+                    repeatedCalls: {
+                        title: "Chiamate ripetute",
+                        description: "Se un numero bloccato richiama entro l'intervallo di tempo impostato, lascia passare la chiamata. Utile per chiamate urgenti.",
+                        minutesLabel: "Minuti"
+                    },
                     footerInfo: "Le chiamate bloccate appariranno nella tua cronologia ma il telefono non squillerà."
+                },
+                provinces: {
+                    title: "Province Italiane",
+                    step: "Passo 4 di 4",
+                    subtitle: "Gestisci il blocco delle chiamate per prefisso provinciale.",
+                    searchPlaceholder: "Cerca province o prefissi…",
+                    filterAll: "Tutti",
+                    filterBlocked: "Bloccati",
+                    filterAllowed: "Consentiti",
+                    blockAll: "Blocca Tutto",
+                    allowAll: "Consenti Tutto",
+                    hint: "Clicca sulle icone per bloccare o sbloccare le province",
+                    footerInfo: "Configura quali province italiane (prefissi) consentire o bloccare. Questo si applica solo quando l'Italia è consentita nella sezione Paesi. Le chiamate dalle province bloccate verranno rifiutate."
                 }
             }
         },
@@ -441,7 +489,7 @@ const translations = {
                 },
                 {
                     title: "Navigazione Blacklist",
-                    text: "La sezione Blacklist ha tre parti: Paesi, Numeri e Impostazioni. Usa queste schede per navigare tra diverse opzioni di blocco."
+                    text: "La sezione Blacklist ha quattro parti: Paesi, Numeri, Impostazioni e Province Italiane. Usa i pulsanti indietro e avanti per spostarti tra di esse."
                 },
                 {
                     title: "Filtra Paesi",
@@ -458,6 +506,10 @@ const translations = {
                 {
                     title: "Impostazioni Blacklist",
                     text: "Configura regole di blocco avanzate. Blocca numeri sconosciuti o numeri senza prefisso internazionale."
+                },
+                {
+                    title: "Province Italiane",
+                    text: "Gestisci il blocco delle chiamate per prefisso provinciale. Filtra per Tutti, Bloccati o Consentiti. Usa Blocca tutto o Consenti tutto per modifiche rapide, oppure tocca ogni provincia per attivare o disattivare."
                 }
             ]
         },

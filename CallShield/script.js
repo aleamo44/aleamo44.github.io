@@ -3,18 +3,19 @@
 // ============================================
 class TranslationManager {
     constructor() {
-        this.currentLanguage = 'en';
+        this.currentLanguage = 'it';
         this.translations = translations;
         this.init();
     }
 
     init() {
-        // Load saved language preference or default to 'en'
+        // Load saved language preference or default to Italian
         const savedLang = localStorage.getItem('callshield-language');
         if (savedLang && this.translations[savedLang]) {
             this.currentLanguage = savedLang;
         }
-        
+        document.documentElement.lang = this.currentLanguage;
+
         // Apply initial translations
         this.translateAll();
         
@@ -247,7 +248,7 @@ class TutorialManager {
             return;
         }
 
-        const currentLang = translationManager.currentLanguage || 'en';
+        const currentLang = translationManager.currentLanguage || 'it';
         const t = translationManager.translations[currentLang];
         
         if (!t || !t.tutorial || !t.tutorial.steps) {
@@ -257,99 +258,21 @@ class TutorialManager {
         }
         
         const steps = t.tutorial.steps;
-        
+        // Step "Statistics" (steps[1]) removed - stats cards no longer on home
         this.steps = [
-            {
-                screen: 'home',
-                element: '.protection-card',
-                title: steps[0].title,
-                text: steps[0].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'home',
-                element: '.stats-cards-row',
-                title: steps[1].title,
-                text: steps[1].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'home',
-                element: '.recent-activity-list',
-                title: steps[2].title,
-                text: steps[2].text,
-                position: 'top'
-            },
-            {
-                screen: 'whitelist',
-                element: '.search-card',
-                title: steps[3].title,
-                text: steps[3].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'whitelist',
-                element: '.allow-contacts-card',
-                title: steps[4].title,
-                text: steps[4].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'whitelist',
-                element: '.whitelist-section',
-                title: steps[5].title,
-                text: steps[5].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'statistics',
-                element: '.chart-card',
-                title: steps[6].title,
-                text: steps[6].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'statistics',
-                element: '.top-origins-card',
-                title: steps[7].title,
-                text: steps[7].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'blacklist',
-                element: '.blacklist-sub-nav',
-                title: steps[8].title,
-                text: steps[8].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'blacklist',
-                element: '#blacklist-countries .filter-chips',
-                title: steps[9].title,
-                text: steps[9].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'blacklist',
-                element: '#blacklist-countries .country-item',
-                title: steps[10].title,
-                text: steps[10].text,
-                position: 'left'
-            },
-            {
-                screen: 'blacklist',
-                element: '#blacklist-numbers',
-                title: steps[11].title,
-                text: steps[11].text,
-                position: 'bottom'
-            },
-            {
-                screen: 'blacklist',
-                element: '#blacklist-settings',
-                title: steps[12].title,
-                text: steps[12].text,
-                position: 'bottom'
-            }
+            { screen: 'home', element: '.protection-card', title: steps[0].title, text: steps[0].text, position: 'bottom' },
+            { screen: 'home', element: '.recent-activity-list', title: steps[2].title, text: steps[2].text, position: 'top' },
+            { screen: 'whitelist', element: '.search-card', title: steps[3].title, text: steps[3].text, position: 'bottom' },
+            { screen: 'whitelist', element: '.allow-contacts-card', title: steps[4].title, text: steps[4].text, position: 'bottom' },
+            { screen: 'whitelist', element: '.whitelist-section', title: steps[5].title, text: steps[5].text, position: 'bottom' },
+            { screen: 'statistics', element: '.chart-card', title: steps[6].title, text: steps[6].text, position: 'bottom' },
+            { screen: 'statistics', element: '.top-origins-card', title: steps[7].title, text: steps[7].text, position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-countries .blacklist-title-section', title: steps[8].title, text: steps[8].text, position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-countries .filter-chips', title: steps[9].title, text: steps[9].text, position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-countries .country-item', title: steps[10].title, text: steps[10].text, position: 'left' },
+            { screen: 'blacklist', element: '#blacklist-numbers', title: steps[11].title, text: steps[11].text, position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-settings', title: steps[12].title, text: steps[12].text, position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-provinces .blacklist-title-section', title: steps[13].title, text: steps[13].text, position: 'bottom' }
         ];
         
         // Update current step if tutorial is active
@@ -359,99 +282,21 @@ class TutorialManager {
     }
 
     setupStepsFallback() {
-        // Fallback English steps if translation manager not available
+        // Fallback English steps if translation manager not available (Statistics step removed)
         this.steps = [
-            {
-                screen: 'home',
-                element: '.protection-card',
-                title: 'Protection Status',
-                text: 'This is the main protection card. Toggle the switch to enable or disable call blocking. When enabled, CallShield will automatically block unwanted calls.',
-                position: 'bottom'
-            },
-            {
-                screen: 'home',
-                element: '.stats-cards-row',
-                title: 'Statistics',
-                text: 'View your blocking statistics here. See how many calls were blocked today and in total. The progress bars show your blocking activity.',
-                position: 'bottom'
-            },
-            {
-                screen: 'home',
-                element: '.recent-activity-list',
-                title: 'Recent Activity',
-                text: 'See your recently blocked calls here. This helps you track what numbers have been blocked and when.',
-                position: 'top'
-            },
-            {
-                screen: 'whitelist',
-                element: '.search-card',
-                title: 'Search Whitelist',
-                text: 'Search for numbers in your whitelist. Type to filter the list and find specific contacts quickly.',
-                position: 'bottom'
-            },
-            {
-                screen: 'whitelist',
-                element: '.allow-contacts-card',
-                title: 'Allow All Contacts',
-                text: 'Enable this option to automatically whitelist everyone in your address book. This ensures all your saved contacts can always reach you.',
-                position: 'bottom'
-            },
-            {
-                screen: 'whitelist',
-                element: '.whitelist-section',
-                title: 'Add to Whitelist',
-                text: 'You can manually add contacts to your whitelist. View your whitelisted numbers here and manage them individually. Numbers in the whitelist will always be allowed to call you.',
-                position: 'bottom'
-            },
-            {
-                screen: 'statistics',
-                element: '.chart-card',
-                title: 'Activity Chart',
-                text: 'View your blocking activity over time. Switch between Daily, Weekly, and Monthly views. Use the navigation arrows to browse different periods.',
-                position: 'bottom'
-            },
-            {
-                screen: 'statistics',
-                element: '.top-origins-card',
-                title: 'Top Origins',
-                text: 'See which countries are sending the most blocked calls. This helps you identify patterns and adjust your blocking settings.',
-                position: 'bottom'
-            },
-            {
-                screen: 'blacklist',
-                element: '.blacklist-sub-nav',
-                title: 'Blacklist Navigation',
-                text: 'The Blacklist section has three parts: Countries, Numbers, and Settings. Use these tabs to navigate between different blocking options.',
-                position: 'bottom'
-            },
-            {
-                screen: 'blacklist',
-                element: '#blacklist-countries .filter-chips',
-                title: 'Filter Countries',
-                text: 'Filter countries by status: All, Blocked, or Allowed. This makes it easier to manage large lists of countries.',
-                position: 'bottom'
-            },
-            {
-                screen: 'blacklist',
-                element: '#blacklist-countries .country-item',
-                title: 'Block Countries',
-                text: 'Toggle the switch next to each country to block or allow calls from that region. Green means allowed, red means blocked.',
-                position: 'left'
-            },
-            {
-                screen: 'blacklist',
-                element: '#blacklist-numbers',
-                title: 'Number Blacklist',
-                text: 'Add specific phone numbers to always block. These numbers will be blocked regardless of other settings.',
-                position: 'bottom'
-            },
-            {
-                screen: 'blacklist',
-                element: '#blacklist-settings',
-                title: 'Blacklist Settings',
-                text: 'Configure advanced blocking rules. Block unknown numbers or numbers without international prefix.',
-                position: 'bottom'
-            }
+            { screen: 'home', element: '.protection-card', title: 'Protection Status', text: 'This is the main protection card. Toggle the switch to enable or disable call blocking. When enabled, CallShield will automatically block unwanted calls.', position: 'bottom' },
+            { screen: 'home', element: '.recent-activity-list', title: 'Recent Activity', text: 'See your recently blocked calls here. This helps you track what numbers have been blocked and when.', position: 'top' },
+            { screen: 'whitelist', element: '.search-card', title: 'Search Whitelist', text: 'Search for numbers in your whitelist. Type to filter the list and find specific contacts quickly.', position: 'bottom' },
+            { screen: 'whitelist', element: '.allow-contacts-card', title: 'Allow All Contacts', text: 'Enable this option to automatically whitelist everyone in your address book. This ensures all your saved contacts can always reach you.', position: 'bottom' },
+            { screen: 'whitelist', element: '.whitelist-section', title: 'Add to Whitelist', text: 'You can manually add contacts to your whitelist. View your whitelisted numbers here and manage them individually. Numbers in the whitelist will always be allowed to call you.', position: 'bottom' },
+            { screen: 'statistics', element: '.chart-card', title: 'Activity Chart', text: 'View your blocking activity over time. Switch between Daily, Weekly, and Monthly views. Use the navigation arrows to browse different periods.', position: 'bottom' },
+            { screen: 'statistics', element: '.top-origins-card', title: 'Top Origins', text: 'See which countries are sending the most blocked calls. This helps you identify patterns and adjust your blocking settings.', position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-countries .blacklist-title-section', title: 'Blacklist Navigation', text: 'The Blacklist section has four parts: Countries, Numbers, Settings, and Italian Provinces. Use the back and next buttons to move between them.', position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-countries .filter-chips', title: 'Filter Countries', text: 'Filter countries by status: All, Blocked, or Allowed. This makes it easier to manage large lists of countries.', position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-countries .country-item', title: 'Block Countries', text: 'Toggle the switch next to each country to block or allow calls from that region. Green means allowed, red means blocked.', position: 'left' },
+            { screen: 'blacklist', element: '#blacklist-numbers', title: 'Number Blacklist', text: 'Add specific phone numbers to always block. These numbers will be blocked regardless of other settings.', position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-settings', title: 'Blacklist Settings', text: 'Configure advanced blocking rules. Block unknown numbers or numbers without international prefix.', position: 'bottom' },
+            { screen: 'blacklist', element: '#blacklist-provinces .blacklist-title-section', title: 'Italian Provinces', text: 'Manage call blocking by Italian area code. Filter by All, Blocked, or Allowed. Use Block All or Allow All for quick changes, or tap each province to toggle.', position: 'bottom' }
         ];
     }
 
@@ -598,7 +443,7 @@ class TutorialManager {
         let requiresSubScreenChange = false;
         let subScreenName = null;
         if (step.screen === 'blacklist' && window.blacklistManager) {
-            const subScreenMatch = step.element.match(/blacklist-(countries|numbers|settings)/);
+            const subScreenMatch = step.element.match(/blacklist-(countries|numbers|settings|provinces)/);
             if (subScreenMatch) {
                 requiresSubScreenChange = true;
                 subScreenName = subScreenMatch[1];
@@ -1146,45 +991,33 @@ class ScreenManager {
             }
         });
 
-        // Show/hide blacklist sub-nav
-        const subNav = document.getElementById('blacklist-sub-nav');
-        if (subNav) {
-            if (screenName === 'blacklist') {
-                subNav.style.display = 'flex';
-                // Show first sub-screen (countries) when showing blacklist
-                // BUT NOT if tutorial is active (tutorial manages sub-screen changes)
-                setTimeout(() => {
-                    // Skip forcing 'countries' if tutorial is active
-                    if (window.tutorialManager && window.tutorialManager.isActive) {
-                        console.log('[ScreenManager] Tutorial is active, skipping auto-show countries');
-                        return;
+        // Handle blacklist sub-screens
+        if (screenName === 'blacklist') {
+            // Show first sub-screen (countries) when showing blacklist
+            // BUT NOT if tutorial is active (tutorial manages sub-screen changes)
+            setTimeout(() => {
+                if (window.tutorialManager && window.tutorialManager.isActive) {
+                    console.log('[ScreenManager] Tutorial is active, skipping auto-show countries');
+                    return;
+                }
+                
+                if (window.blacklistManager) {
+                    window.blacklistManager.showSubScreen('countries');
+                } else {
+                    // Fallback: manually show first sub-screen
+                    const firstSubScreen = document.getElementById('blacklist-countries');
+                    if (firstSubScreen) {
+                        document.querySelectorAll('.blacklist-sub-screen').forEach(s => s.classList.remove('active'));
+                        firstSubScreen.classList.add('active');
                     }
-                    
-                    if (window.blacklistManager) {
-                        window.blacklistManager.showSubScreen('countries');
-                    } else {
-                        // Fallback: manually show first sub-screen
-                        const firstSubScreen = document.getElementById('blacklist-countries');
-                        if (firstSubScreen) {
-                            document.querySelectorAll('.blacklist-sub-screen').forEach(s => s.classList.remove('active'));
-                            firstSubScreen.classList.add('active');
-                            document.querySelectorAll('.blacklist-sub-nav-btn').forEach(btn => {
-                                btn.classList.remove('active');
-                                if (btn.dataset.subscreen === 'countries') {
-                                    btn.classList.add('active');
-                                }
-                            });
-                        }
-                    }
-                }, 50);
-            } else {
-                subNav.style.display = 'none';
-                // Hide all sub-screens when leaving blacklist
-                const subScreens = document.querySelectorAll('.blacklist-sub-screen');
-                subScreens.forEach(screen => {
-                    screen.classList.remove('active');
-                });
-            }
+                }
+            }, 50);
+        } else {
+            // Hide all sub-screens when leaving blacklist
+            const subScreens = document.querySelectorAll('.blacklist-sub-screen');
+            subScreens.forEach(screen => {
+                screen.classList.remove('active');
+            });
         }
 
         this.currentScreen = screenName;
@@ -1231,21 +1064,7 @@ class BlacklistManager {
     }
 
     setupEventListeners() {
-        // Use event delegation to handle clicks even if buttons are added dynamically
-        const subNav = document.getElementById('blacklist-sub-nav');
-        if (subNav) {
-            subNav.addEventListener('click', (e) => {
-                const btn = e.target.closest('.blacklist-sub-nav-btn');
-                if (btn) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const subScreen = btn.dataset.subscreen;
-                    if (subScreen) {
-                        this.showSubScreen(subScreen);
-                    }
-                }
-            });
-        }
+        // Sub-nav chips removed; navigation is handled by internal back/next buttons
     }
 
     showSubScreen(subScreenName) {
@@ -1272,12 +1091,7 @@ class BlacklistManager {
                 this._doShowSubScreen(subScreenName);
             }, 500);
         } else {
-            // Screen is already visible, but ensure sub-nav is visible too
-            const subNav = document.getElementById('blacklist-sub-nav');
-            if (subNav) {
-                subNav.style.display = 'flex';
-            }
-            // Show sub-screen immediately
+            // Screen is already visible, show sub-screen immediately
             this._doShowSubScreen(subScreenName);
         }
     }
@@ -1294,12 +1108,6 @@ class BlacklistManager {
         
         if (!blacklistScreen.classList.contains('active')) {
             blacklistScreen.classList.add('active');
-        }
-        
-        // Ensure sub-nav is visible
-        const subNav = document.getElementById('blacklist-sub-nav');
-        if (subNav) {
-            subNav.style.display = 'flex';
         }
         
         // Find target sub-screen
@@ -1323,16 +1131,6 @@ class BlacklistManager {
         // Show target sub-screen
         targetSubScreen.classList.add('active');
         
-        // Update sub-nav buttons
-        const subNavButtons = document.querySelectorAll('.blacklist-sub-nav-btn');
-        subNavButtons.forEach(btn => {
-            if (btn.dataset.subscreen === subScreenName) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-        
         this.currentSubScreen = subScreenName;
         
         // Trigger animations after sub-screen is visible
@@ -1351,6 +1149,9 @@ class BlacklistManager {
                 break;
             case 'settings':
                 animateSettingsScreen();
+                break;
+            case 'provinces':
+                animateProvincesScreen();
                 break;
         }
     }
@@ -1407,32 +1208,6 @@ function animateHomeScreen() {
             protectionSwitch.dataset.animated = 'true';
         }, 500);
     }
-
-    // Animate stats counters
-    const todayBlocked = document.querySelector('#screen-home .stats-number[data-target="12"]');
-    const totalBlocked = document.querySelector('#screen-home .stats-number[data-target="1247"]');
-
-    if (todayBlocked && !todayBlocked.dataset.animated) {
-        animateCounter(todayBlocked, 12);
-        todayBlocked.dataset.animated = 'true';
-    }
-
-    if (totalBlocked && !totalBlocked.dataset.animated) {
-        animateCounter(totalBlocked, 1247);
-        totalBlocked.dataset.animated = 'true';
-    }
-
-    // Animate progress bars
-    const progressBars = document.querySelectorAll('#screen-home .progress-fill');
-    progressBars.forEach((bar, index) => {
-        if (!bar.dataset.animated) {
-            const progress = bar.dataset.progress || '0';
-            setTimeout(() => {
-                animateProgressBar(bar, parseInt(progress), 1500);
-            }, index * 200);
-            bar.dataset.animated = 'true';
-        }
-    });
 
     // Animate activity items
     const activityItems = document.querySelectorAll('#screen-home .activity-item');
@@ -1616,6 +1391,62 @@ function animateSettingsScreen() {
             unknownCountriesSwitch.dataset.animated = 'true';
         }, 1000);
     }
+
+    // Animate Hidden Numbers switch
+    const hiddenNumbersSwitch = document.getElementById('switch-hidden-numbers');
+    if (hiddenNumbersSwitch && !hiddenNumbersSwitch.dataset.animated) {
+        setTimeout(() => {
+            if (hiddenNumbersSwitch.checked !== true) {
+                hiddenNumbersSwitch.checked = true;
+                hiddenNumbersSwitch.dispatchEvent(new Event('change'));
+            }
+            hiddenNumbersSwitch.dataset.animated = 'true';
+        }, 1500);
+    }
+
+    // Animate Repeated Calls switch
+    const repeatedCallsSwitch = document.getElementById('switch-repeated-calls');
+    if (repeatedCallsSwitch && !repeatedCallsSwitch.dataset.animated) {
+        setTimeout(() => {
+            if (repeatedCallsSwitch.checked !== true) {
+                repeatedCallsSwitch.checked = true;
+                repeatedCallsSwitch.dispatchEvent(new Event('change'));
+            }
+            repeatedCallsSwitch.dataset.animated = 'true';
+        }, 2000);
+    }
+}
+
+function animateProvincesScreen() {
+    const provincesSubScreen = document.getElementById('blacklist-provinces');
+    if (!provincesSubScreen || !provincesSubScreen.classList.contains('active')) {
+        return;
+    }
+
+    // Simulate typing in search
+    const searchInput = document.getElementById('provinces-search');
+    if (searchInput && !searchInput.dataset.animated) {
+        simulateTyping(searchInput, 'Roma', () => {
+            setTimeout(() => {
+                searchInput.value = '';
+                searchInput.dataset.animated = 'true';
+            }, 2000);
+        });
+    }
+
+    // Animate province toggles (first 2 items)
+    const provinceItems = document.querySelectorAll('#blacklist-provinces .province-item');
+    provinceItems.forEach((item, index) => {
+        if (index < 2 && !item.dataset.animated) {
+            setTimeout(() => {
+                toggleProvinceStatus(item);
+                setTimeout(() => {
+                    toggleProvinceStatus(item);
+                }, 1000);
+                item.dataset.animated = 'true';
+            }, 500 + index * 400);
+        }
+    });
 }
 
 function simulateTyping(input, text, callback) {
@@ -1852,6 +1683,35 @@ function setupInteractions() {
         });
     }
 
+    // Next button for Settings screen
+    const settingsNextBtn = document.getElementById('settings-next-btn');
+    if (settingsNextBtn) {
+        settingsNextBtn.addEventListener('click', () => {
+            if (window.blacklistManager) {
+                window.blacklistManager.showSubScreen('provinces');
+            }
+        });
+    }
+
+    // Back button for Extra screen
+    const provincesBackBtn = document.getElementById('provinces-back-btn');
+    if (provincesBackBtn) {
+        provincesBackBtn.addEventListener('click', () => {
+            if (window.blacklistManager) {
+                window.blacklistManager.showSubScreen('settings');
+            }
+        });
+    }
+
+    // Repeated Calls switch - show/hide minutes input
+    const repeatedCallsSwitch = document.getElementById('switch-repeated-calls');
+    const minutesRow = document.getElementById('repeated-calls-minutes-row');
+    if (repeatedCallsSwitch && minutesRow) {
+        repeatedCallsSwitch.addEventListener('change', (e) => {
+            minutesRow.style.display = e.target.checked ? 'flex' : 'none';
+        });
+    }
+
     // Block All / Allow All buttons
     const blockAllBtn = document.getElementById('btn-block-all');
     const allowAllBtn = document.getElementById('btn-allow-all');
@@ -1876,6 +1736,33 @@ function setupInteractions() {
         });
     }
 
+    // Province items (blacklist step 4) - click to toggle
+    const provinceItems = document.querySelectorAll('#blacklist-provinces .province-item');
+    provinceItems.forEach(item => {
+        item.addEventListener('click', () => {
+            toggleProvinceStatus(item);
+        });
+    });
+
+    // Provinces Block All / Allow All
+    const provincesBlockAllBtn = document.getElementById('btn-provinces-block-all');
+    const provincesAllowAllBtn = document.getElementById('btn-provinces-allow-all');
+    if (provincesBlockAllBtn) {
+        provincesBlockAllBtn.addEventListener('click', () => {
+            document.querySelectorAll('#blacklist-provinces .province-item').forEach(item => {
+                item.dataset.status = 'blocked';
+                updateProvinceIcon(item);
+            });
+        });
+    }
+    if (provincesAllowAllBtn) {
+        provincesAllowAllBtn.addEventListener('click', () => {
+            document.querySelectorAll('#blacklist-provinces .province-item').forEach(item => {
+                item.dataset.status = 'allowed';
+                updateProvinceIcon(item);
+            });
+        });
+    }
 
     // Chart navigation
     const chartPrev = document.getElementById('chart-prev');
@@ -2028,6 +1915,33 @@ function updateCountryIcon(countryItem) {
     const isAllowed = status === 'allowed';
     
     // Create check circle icon (green) for allowed, block icon (red) for blocked
+    if (isAllowed) {
+        iconContainer.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#16A34A"/>
+            </svg>
+        `;
+    } else {
+        iconContainer.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM18 13H6V11H18V13Z" fill="#DC2626"/>
+            </svg>
+        `;
+    }
+}
+
+function toggleProvinceStatus(provinceItem) {
+    const currentStatus = provinceItem.dataset.status;
+    const newStatus = currentStatus === 'allowed' ? 'blocked' : 'allowed';
+    provinceItem.dataset.status = newStatus;
+    updateProvinceIcon(provinceItem);
+}
+
+function updateProvinceIcon(provinceItem) {
+    const iconContainer = provinceItem.querySelector('.province-toggle-icon');
+    if (!iconContainer) return;
+    const status = provinceItem.dataset.status;
+    const isAllowed = status === 'allowed';
     if (isAllowed) {
         iconContainer.innerHTML = `
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

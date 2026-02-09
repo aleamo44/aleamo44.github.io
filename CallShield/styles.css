@@ -648,40 +648,6 @@ body.dark-mode .cta-download .ios-coming-soon {
     border-color: var(--primary);
 }
 
-/* Blacklist Sub Navigation */
-.blacklist-sub-nav {
-    display: flex;
-    gap: var(--spacing-sm);
-    justify-content: center;
-    margin-bottom: var(--spacing-lg);
-    flex-wrap: wrap;
-}
-
-.blacklist-sub-nav-btn {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    background-color: var(--surface);
-    border: 1px solid var(--outline-variant);
-    border-radius: var(--radius-full);
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--on-surface);
-    cursor: pointer;
-    transition: all var(--transition-base);
-    font-family: var(--font-family);
-}
-
-.blacklist-sub-nav-btn:hover {
-    background-color: var(--primary-container);
-    border-color: var(--primary);
-    color: var(--primary);
-}
-
-.blacklist-sub-nav-btn.active {
-    background-color: var(--primary);
-    color: var(--on-primary);
-    border-color: var(--primary);
-}
-
 .blacklist-sub-screen {
     display: none;
 }
@@ -1684,6 +1650,74 @@ body.dark-mode .cta-download .ios-coming-soon {
     cursor: pointer;
 }
 
+/* Provinces list (blacklist step 4) */
+.provinces-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.province-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--surface);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.province-item:hover {
+    border-color: var(--primary);
+}
+
+.province-code {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--on-primary-container);
+    background-color: var(--primary-container);
+    border-radius: var(--radius-md);
+}
+
+.province-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.province-name {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--on-surface);
+    margin-bottom: 2px;
+}
+
+.province-prefix {
+    font-size: 0.75rem;
+    color: var(--on-surface-variant);
+}
+
+.province-toggle-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast);
+}
+
+.province-toggle-icon:hover {
+    transform: scale(1.1);
+}
+
 /* ============================================
    Blacklist Sub-screens
    ============================================ */
@@ -1903,6 +1937,46 @@ body.dark-mode .cta-download .ios-coming-soon {
 .blacklist-setting-description strong {
     color: var(--on-surface);
     font-weight: 600;
+}
+
+/* Repeated Calls Minutes Input Row */
+.repeated-calls-minutes {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    padding-left: 64px;
+}
+
+.minutes-input {
+    width: 72px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    color: var(--on-surface);
+    background-color: var(--surface);
+    text-align: center;
+    outline: none;
+    transition: border-color var(--transition-fast);
+    -moz-appearance: textfield;
+}
+
+.minutes-input::-webkit-outer-spin-button,
+.minutes-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.minutes-input:focus {
+    border-color: var(--primary);
+}
+
+.minutes-label {
+    font-size: 0.9375rem;
+    color: var(--on-surface-variant);
+    font-weight: 500;
 }
 
 /* ============================================
