@@ -480,6 +480,7 @@
                                     <div class="progress-dot"></div>
                                     <div class="progress-dot"></div>
                                     <div class="progress-dot"></div>
+                                    <div class="progress-dot"></div>
                                 </div>
                             </div>
                             <button class="blacklist-next-btn" id="countries-next-btn">
@@ -493,7 +494,7 @@
                         <div class="blacklist-title-section">
                             <div class="blacklist-title-row">
                                 <h3 class="blacklist-main-title" data-i18n="appScreens.blacklist.countries.title">Countries</h3>
-                                <div class="blacklist-step" data-i18n="appScreens.blacklist.countries.step">Step 1 of 4</div>
+                                <div class="blacklist-step" data-i18n="appScreens.blacklist.countries.step">Step 1 of 5</div>
                             </div>
                             <p class="blacklist-subtitle" data-i18n="appScreens.blacklist.countries.subtitle">Manage call blocking by region.</p>
                         </div>
@@ -600,6 +601,217 @@
                     </div>
                     </div>
                     
+                    <!-- Prefixes Sub-screen -->
+                    <div class="blacklist-sub-screen" id="blacklist-prefixes" data-subscreen="prefixes">
+                        <div class="screen-content">
+                            <div class="blacklist-sub-header">
+                                <button class="blacklist-back-btn" id="prefixes-back-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M15 18L9 12L15 6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="blacklist-sub-title-section">
+                                    <h3 class="blacklist-sub-title" data-i18n="appScreens.blacklist.prefixes.title">Prefixes</h3>
+                                    <div class="blacklist-sub-progress">
+                                        <div class="progress-dot"></div>
+                                        <div class="progress-dot active"></div>
+                                        <div class="progress-dot"></div>
+                                        <div class="progress-dot"></div>
+                                        <div class="progress-dot"></div>
+                                    </div>
+                                </div>
+                                <button class="blacklist-next-btn" id="prefixes-next-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 18L15 12L9 6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="blacklist-title-section">
+                                <div class="blacklist-title-row">
+                                    <h3 class="blacklist-main-title" data-i18n="appScreens.blacklist.prefixes.title">Prefixes</h3>
+                                    <div class="blacklist-step" data-i18n="appScreens.blacklist.prefixes.step">Step 2 of 5</div>
+                                </div>
+                                <p class="blacklist-subtitle" data-i18n="appScreens.blacklist.prefixes.subtitle">Block calls that start with these digits after the country code.</p>
+                                <p class="blacklist-prefixes-independent" data-i18n="appScreens.blacklist.prefixes.independentInfo">Prefixes are checked independently of country blocking settings.</p>
+                            </div>
+                            <div class="card search-card-no-border">
+                                <div class="search-container">
+                                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="var(--on-surface-variant)" stroke-width="2"/>
+                                        <path d="M21 21L16.65 16.65" stroke="var(--on-surface-variant)" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    <input type="text" class="search-input" id="prefixes-search" data-i18n-placeholder="appScreens.blacklist.prefixes.searchPlaceholder" placeholder="Search prefixes…">
+                                </div>
+                            </div>
+                            <div class="blacklist-prefixes-list">
+                                <div class="card blacklist-prefix-item" style="animation-delay: 0.1s;">
+                                    <span class="blacklist-prefix-value">00</span>
+                                    <button class="blacklist-action-btn" aria-label="Delete" data-i18n-aria-label="dialogs.delete.ariaLabel">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M3 6H5H21" stroke="#BA1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#BA1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="card blacklist-prefix-item" style="animation-delay: 0.2s;">
+                                    <span class="blacklist-prefix-value">001</span>
+                                    <button class="blacklist-action-btn" aria-label="Delete" data-i18n-aria-label="dialogs.delete.ariaLabel">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M3 6H5H21" stroke="#BA1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#BA1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="card blacklist-prefix-item" style="animation-delay: 0.3s;">
+                                    <span class="blacklist-prefix-value">02</span>
+                                    <button class="blacklist-action-btn" aria-label="Delete" data-i18n-aria-label="dialogs.delete.ariaLabel">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M3 6H5H21" stroke="#BA1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#BA1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="blacklist-footer-info">
+                                <p data-i18n="appScreens.blacklist.prefixes.footerInfo">Add 2–4 digit prefixes to block. Matching is applied after the international prefix, regardless of country settings.</p>
+                            </div>
+                            <button class="fab" id="fab-add-prefix" aria-label="Add prefix" data-i18n-aria-label="appScreens.blacklist.prefixes.addPrefix">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Provinces Sub-screen -->
+                    <div class="blacklist-sub-screen" id="blacklist-provinces" data-subscreen="provinces">
+                        <div class="screen-content">
+                            <div class="blacklist-sub-header">
+                                <button class="blacklist-back-btn" id="provinces-back-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M15 18L9 12L15 6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="blacklist-sub-title-section">
+                                    <h3 class="blacklist-sub-title" data-i18n="appScreens.blacklist.provinces.title">Italian Provinces</h3>
+                                    <div class="blacklist-sub-progress">
+                                        <div class="progress-dot"></div>
+                                        <div class="progress-dot"></div>
+                                        <div class="progress-dot active"></div>
+                                        <div class="progress-dot"></div>
+                                        <div class="progress-dot"></div>
+                                    </div>
+                                </div>
+                                <button class="blacklist-next-btn" id="provinces-next-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 18L15 12L9 6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="blacklist-title-section">
+                                <div class="blacklist-title-row">
+                                    <h3 class="blacklist-main-title" data-i18n="appScreens.blacklist.provinces.title">Italian Provinces</h3>
+                                    <div class="blacklist-step" data-i18n="appScreens.blacklist.provinces.step">Step 3 of 5</div>
+                                </div>
+                                <p class="blacklist-subtitle" data-i18n="appScreens.blacklist.provinces.subtitle">Manage call blocking by Italian area code.</p>
+                            </div>
+                            <div class="card search-card-no-border">
+                                <div class="search-container">
+                                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="var(--on-surface-variant)" stroke-width="2"/>
+                                        <path d="M21 21L16.65 16.65" stroke="var(--on-surface-variant)" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    <input type="text" class="search-input" id="provinces-search" data-i18n-placeholder="appScreens.blacklist.provinces.searchPlaceholder" placeholder="Search provinces or codes…">
+                                </div>
+                            </div>
+                            <div class="filter-chips" id="provinces-filter-chips">
+                                <button class="filter-chip active" data-filter="all" data-i18n="appScreens.blacklist.provinces.filterAll">All</button>
+                                <button class="filter-chip" data-filter="blocked" data-i18n="appScreens.blacklist.provinces.filterBlocked">Blocked</button>
+                                <button class="filter-chip" data-filter="allowed" data-i18n="appScreens.blacklist.provinces.filterAllowed">Allowed</button>
+                            </div>
+                            <div class="bulk-action-buttons">
+                                <button class="btn-block-all" id="btn-provinces-block-all" data-i18n="appScreens.blacklist.provinces.blockAll">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M18 6L6 18M6 6L18 18" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    Block All
+                                </button>
+                                <button class="btn-allow-all" id="btn-provinces-allow-all" data-i18n="appScreens.blacklist.provinces.allowAll">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 6L9 17L4 12" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Allow All
+                                </button>
+                            </div>
+                            <p class="countries-hint" data-i18n="appScreens.blacklist.provinces.hint">Click on the icons to block or unblock provinces</p>
+                            <div class="provinces-list">
+                                <div class="province-item" data-province="rm" data-status="allowed">
+                                    <div class="province-code">RM</div>
+                                    <div class="province-info">
+                                        <div class="province-name">Rome</div>
+                                        <div class="province-prefix">06</div>
+                                    </div>
+                                    <div class="province-toggle-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#16A34A"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="province-item" data-province="mi" data-status="blocked">
+                                    <div class="province-code">MI</div>
+                                    <div class="province-info">
+                                        <div class="province-name">Milan</div>
+                                        <div class="province-prefix">02</div>
+                                    </div>
+                                    <div class="province-toggle-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM18 13H6V11H18V13Z" fill="#DC2626"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="province-item" data-province="na" data-status="allowed">
+                                    <div class="province-code">NA</div>
+                                    <div class="province-info">
+                                        <div class="province-name">Naples</div>
+                                        <div class="province-prefix">081</div>
+                                    </div>
+                                    <div class="province-toggle-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#16A34A"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="province-item" data-province="to" data-status="blocked">
+                                    <div class="province-code">TO</div>
+                                    <div class="province-info">
+                                        <div class="province-name">Turin</div>
+                                        <div class="province-prefix">011</div>
+                                    </div>
+                                    <div class="province-toggle-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM18 13H6V11H18V13Z" fill="#DC2626"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="province-item" data-province="fi" data-status="allowed">
+                                    <div class="province-code">FI</div>
+                                    <div class="province-info">
+                                        <div class="province-name">Florence</div>
+                                        <div class="province-prefix">055</div>
+                                    </div>
+                                    <div class="province-toggle-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#16A34A"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blacklist-footer-info">
+                                <p data-i18n="appScreens.blacklist.provinces.footerInfo">Configure which Italian provinces (area codes) to allow or block. This applies only when Italy is allowed in the Countries section. Calls from blocked provinces will be rejected.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- Numbers Sub-screen -->
                     <div class="blacklist-sub-screen" id="blacklist-numbers" data-subscreen="numbers">
                         <div class="screen-content">
@@ -614,8 +826,9 @@
                                     <h3 class="blacklist-sub-title" data-i18n="appScreens.blacklist.numbers.title">Numbers</h3>
                                     <div class="blacklist-sub-progress">
                                         <div class="progress-dot"></div>
-                                        <div class="progress-dot active"></div>
                                         <div class="progress-dot"></div>
+                                        <div class="progress-dot"></div>
+                                        <div class="progress-dot active"></div>
                                         <div class="progress-dot"></div>
                                     </div>
                                 </div>
@@ -630,7 +843,7 @@
                             <div class="blacklist-title-section">
                                 <div class="blacklist-title-row">
                                     <h3 class="blacklist-main-title" data-i18n="appScreens.blacklist.numbers.title">Numbers</h3>
-                                    <div class="blacklist-step" data-i18n="appScreens.blacklist.numbers.step">Step 2 of 4</div>
+                                    <div class="blacklist-step" data-i18n="appScreens.blacklist.numbers.step">Step 4 of 5</div>
                                 </div>
                                 <p class="blacklist-subtitle" data-i18n="appScreens.blacklist.numbers.subtitle">Manage blocked phone numbers.</p>
                             </div>
@@ -748,8 +961,9 @@
                                     <div class="blacklist-sub-progress">
                                         <div class="progress-dot"></div>
                                         <div class="progress-dot"></div>
-                                        <div class="progress-dot active"></div>
                                         <div class="progress-dot"></div>
+                                        <div class="progress-dot"></div>
+                                        <div class="progress-dot active"></div>
                                     </div>
                                 </div>
                                 <button class="blacklist-next-btn" id="settings-next-btn">
@@ -763,7 +977,7 @@
                             <div class="blacklist-title-section">
                                 <div class="blacklist-title-row">
                                     <h3 class="blacklist-main-title" data-i18n="appScreens.blacklist.settings.title">Settings</h3>
-                                    <div class="blacklist-step" data-i18n="appScreens.blacklist.settings.step">Step 3 of 4</div>
+                                    <div class="blacklist-step" data-i18n="appScreens.blacklist.settings.step">Step 5 of 5</div>
                                 </div>
                             </div>
 
@@ -865,137 +1079,6 @@
                             <!-- Footer Info Text -->
                             <div class="blacklist-footer-info">
                                 <p data-i18n="appScreens.blacklist.settings.footerInfo">Blocked calls will appear in your history but your phone will not ring.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Provinces Sub-screen -->
-                    <div class="blacklist-sub-screen" id="blacklist-provinces" data-subscreen="provinces">
-                        <div class="screen-content">
-                            <div class="blacklist-sub-header">
-                                <button class="blacklist-back-btn" id="provinces-back-btn">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                        <path d="M15 18L9 12L15 6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </button>
-                                <div class="blacklist-sub-title-section">
-                                    <h3 class="blacklist-sub-title" data-i18n="appScreens.blacklist.provinces.title">Italian Provinces</h3>
-                                    <div class="blacklist-sub-progress">
-                                        <div class="progress-dot"></div>
-                                        <div class="progress-dot"></div>
-                                        <div class="progress-dot"></div>
-                                        <div class="progress-dot active"></div>
-                                    </div>
-                                </div>
-                                <div style="width: 40px; height: 40px;"></div>
-                            </div>
-
-                            <div class="blacklist-title-section">
-                                <div class="blacklist-title-row">
-                                    <h3 class="blacklist-main-title" data-i18n="appScreens.blacklist.provinces.title">Italian Provinces</h3>
-                                    <div class="blacklist-step" data-i18n="appScreens.blacklist.provinces.step">Step 4 of 4</div>
-                                </div>
-                                <p class="blacklist-subtitle" data-i18n="appScreens.blacklist.provinces.subtitle">Manage call blocking by Italian area code.</p>
-                            </div>
-
-                            <div class="card search-card-no-border">
-                                <div class="search-container">
-                                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="var(--on-surface-variant)" stroke-width="2"/>
-                                        <path d="M21 21L16.65 16.65" stroke="var(--on-surface-variant)" stroke-width="2" stroke-linecap="round"/>
-                                    </svg>
-                                    <input type="text" class="search-input" id="provinces-search" data-i18n-placeholder="appScreens.blacklist.provinces.searchPlaceholder" placeholder="Search provinces or codes…">
-                                </div>
-                            </div>
-
-                            <div class="filter-chips" id="provinces-filter-chips">
-                                <button class="filter-chip active" data-filter="all" data-i18n="appScreens.blacklist.provinces.filterAll">All</button>
-                                <button class="filter-chip" data-filter="blocked" data-i18n="appScreens.blacklist.provinces.filterBlocked">Blocked</button>
-                                <button class="filter-chip" data-filter="allowed" data-i18n="appScreens.blacklist.provinces.filterAllowed">Allowed</button>
-                            </div>
-
-                            <div class="bulk-action-buttons">
-                                <button class="btn-block-all" id="btn-provinces-block-all" data-i18n="appScreens.blacklist.provinces.blockAll">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <path d="M18 6L6 18M6 6L18 18" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
-                                    </svg>
-                                    Block All
-                                </button>
-                                <button class="btn-allow-all" id="btn-provinces-allow-all" data-i18n="appScreens.blacklist.provinces.allowAll">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <path d="M20 6L9 17L4 12" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    Allow All
-                                </button>
-                            </div>
-
-                            <p class="countries-hint" data-i18n="appScreens.blacklist.provinces.hint">Click on the icons to block or unblock provinces</p>
-
-                            <div class="provinces-list">
-                                <div class="province-item" data-province="rm" data-status="allowed">
-                                    <div class="province-code">RM</div>
-                                    <div class="province-info">
-                                        <div class="province-name">Rome</div>
-                                        <div class="province-prefix">06</div>
-                                    </div>
-                                    <div class="province-toggle-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#16A34A"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="province-item" data-province="mi" data-status="blocked">
-                                    <div class="province-code">MI</div>
-                                    <div class="province-info">
-                                        <div class="province-name">Milan</div>
-                                        <div class="province-prefix">02</div>
-                                    </div>
-                                    <div class="province-toggle-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM18 13H6V11H18V13Z" fill="#DC2626"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="province-item" data-province="na" data-status="allowed">
-                                    <div class="province-code">NA</div>
-                                    <div class="province-info">
-                                        <div class="province-name">Naples</div>
-                                        <div class="province-prefix">081</div>
-                                    </div>
-                                    <div class="province-toggle-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#16A34A"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="province-item" data-province="to" data-status="blocked">
-                                    <div class="province-code">TO</div>
-                                    <div class="province-info">
-                                        <div class="province-name">Turin</div>
-                                        <div class="province-prefix">011</div>
-                                    </div>
-                                    <div class="province-toggle-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM18 13H6V11H18V13Z" fill="#DC2626"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="province-item" data-province="fi" data-status="allowed">
-                                    <div class="province-code">FI</div>
-                                    <div class="province-info">
-                                        <div class="province-name">Florence</div>
-                                        <div class="province-prefix">055</div>
-                                    </div>
-                                    <div class="province-toggle-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#16A34A"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="blacklist-footer-info">
-                                <p data-i18n="appScreens.blacklist.provinces.footerInfo">Configure which Italian provinces (area codes) to allow or block. This applies only when Italy is allowed in the Countries section. Calls from blocked provinces will be rejected.</p>
                             </div>
                         </div>
                     </div>

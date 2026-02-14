@@ -1798,6 +1798,35 @@ body.dark-mode .cta-download .ios-coming-soon {
     margin-top: var(--spacing-xs);
 }
 
+.blacklist-prefixes-independent {
+    font-size: 0.8125rem;
+    color: var(--on-surface-variant);
+    margin-top: var(--spacing-sm);
+    font-style: italic;
+}
+
+.blacklist-prefixes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+}
+
+.blacklist-prefix-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+}
+
+.blacklist-prefix-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--on-surface);
+    font-variant-numeric: tabular-nums;
+}
+
 .blacklist-numbers-list {
     display: flex;
     flex-direction: column;

@@ -75,6 +75,7 @@ const translations = {
             navStatistics: "Statistics",
             blacklistSubNav: {
                 countries: "Countries",
+                prefixes: "Prefixes",
                 numbers: "Numbers",
                 settings: "Settings"
             },
@@ -113,7 +114,7 @@ const translations = {
             blacklist: {
                 countries: {
                     title: "Countries",
-                    step: "Step 1 of 4",
+                    step: "Step 1 of 5",
                     subtitle: "Manage call blocking by region.",
                     searchPlaceholder: "Search countries or codes…",
                     filterAll: "All",
@@ -123,9 +124,19 @@ const translations = {
                     allowAll: "Allow All",
                     hint: "Click on the icons to block or unblock countries"
                 },
+                prefixes: {
+                    title: "Prefixes",
+                    step: "Step 2 of 5",
+                    subtitle: "Block calls that start with these digits after the country code.",
+                    independentInfo: "Prefixes are checked independently of country blocking settings.",
+                    searchPlaceholder: "Search prefixes…",
+                    noBlockedPrefixes: "No blocked prefixes",
+                    addPrefix: "Add prefix",
+                    footerInfo: "Add 2–4 digit prefixes to block. Matching is applied after the international prefix, regardless of country settings."
+                },
                 numbers: {
                     title: "Numbers",
-                    step: "Step 2 of 4",
+                    step: "Step 4 of 5",
                     subtitle: "Manage blocked phone numbers.",
                     searchPlaceholder: "Search numbers…",
                     footerInfo: "Calls from these numbers will be automatically rejected and logged in your Stats.",
@@ -133,7 +144,7 @@ const translations = {
                 },
                 settings: {
                     title: "Settings",
-                    step: "Step 3 of 4",
+                    step: "Step 5 of 5",
                     unknownNumbers: {
                         title: "Unknown Numbers",
                         description: "Automatically block incoming calls from numbers that are not saved in your contacts list. Use with caution."
@@ -155,7 +166,7 @@ const translations = {
                 },
                 provinces: {
                     title: "Italian Provinces",
-                    step: "Step 4 of 4",
+                    step: "Step 3 of 5",
                     subtitle: "Manage call blocking by Italian area code.",
                     searchPlaceholder: "Search provinces or codes…",
                     filterAll: "All",
@@ -175,62 +186,20 @@ const translations = {
             next: "Next",
             finish: "Finish",
             steps: [
-                {
-                    title: "Protection Status",
-                    text: "This is the main protection card. Toggle the switch to enable or disable call blocking. When enabled, CallShield will automatically block unwanted calls."
-                },
-                {
-                    title: "Statistics",
-                    text: "View your blocking statistics here. See how many calls were blocked today and in total. The progress bars show your blocking activity."
-                },
-                {
-                    title: "Recent Activity",
-                    text: "See your recently blocked calls here. This helps you track what numbers have been blocked and when."
-                },
-                {
-                    title: "Search Whitelist",
-                    text: "Search for numbers in your whitelist. Type to filter the list and find specific contacts quickly."
-                },
-                {
-                    title: "Allow All Contacts",
-                    text: "Enable this option to automatically whitelist everyone in your address book. This ensures all your saved contacts can always reach you."
-                },
-                {
-                    title: "Add to Whitelist",
-                    text: "You can manually add contacts to your whitelist. View your whitelisted numbers here and manage them individually. Numbers in the whitelist will always be allowed to call you."
-                },
-                {
-                    title: "Activity Chart",
-                    text: "View your blocking activity over time. Switch between Daily, Weekly, and Monthly views. Use the navigation arrows to browse different periods."
-                },
-                {
-                    title: "Top Origins",
-                    text: "See which countries are sending the most blocked calls. This helps you identify patterns and adjust your blocking settings."
-                },
-                {
-                    title: "Blacklist Navigation",
-                    text: "The Blacklist section has four parts: Countries, Numbers, Settings, and Italian Provinces. Use the back and next buttons to move between them."
-                },
-                {
-                    title: "Filter Countries",
-                    text: "Filter countries by status: All, Blocked, or Allowed. This makes it easier to manage large lists of countries."
-                },
-                {
-                    title: "Block Countries",
-                    text: "Toggle the switch next to each country to block or allow calls from that region. Green means allowed, red means blocked."
-                },
-                {
-                    title: "Number Blacklist",
-                    text: "Add specific phone numbers to always block. These numbers will be blocked regardless of other settings."
-                },
-                {
-                    title: "Blacklist Settings",
-                    text: "Configure advanced blocking rules. Block unknown numbers or numbers without international prefix."
-                },
-                {
-                    title: "Italian Provinces",
-                    text: "Manage call blocking by Italian area code. Filter by All, Blocked, or Allowed. Use Block All or Allow All for quick changes, or tap each province to toggle."
-                }
+                { title: "Protection Status", text: "This is the main protection card. Toggle the switch to enable or disable call blocking. When enabled, CallShield will automatically block unwanted calls." },
+                { title: "Recent Activity", text: "See your recently blocked calls here. This helps you track what numbers have been blocked and when." },
+                { title: "Search Whitelist", text: "Search for numbers in your whitelist. Type to filter the list and find specific contacts quickly." },
+                { title: "Allow All Contacts", text: "Enable this option to automatically whitelist everyone in your address book. This ensures all your saved contacts can always reach you." },
+                { title: "Add to Whitelist", text: "You can manually add contacts to your whitelist. View your whitelisted numbers here and manage them individually. Numbers in the whitelist will always be allowed to call you." },
+                { title: "Blacklist Navigation", text: "The Blacklist section has five parts: Countries, Prefixes, Italian Provinces, Numbers, and Settings. Use the back and next buttons to move between them." },
+                { title: "Filter Countries", text: "Filter countries by status: All, Blocked, or Allowed. This makes it easier to manage large lists of countries." },
+                { title: "Block Countries", text: "Toggle the switch next to each country to block or allow calls from that region. Green means allowed, red means blocked." },
+                { title: "Prefixes", text: "Block numbers that start with the digits you add here, after the international prefix. This check runs independently of country blocking settings." },
+                { title: "Italian Provinces", text: "Manage call blocking by Italian area code. Filter by All, Blocked, or Allowed. Use Block All or Allow All for quick changes, or tap each province to toggle." },
+                { title: "Number Blacklist", text: "Add specific phone numbers to always block. These numbers will be blocked regardless of other settings." },
+                { title: "Blacklist Settings", text: "Configure advanced blocking rules. Block unknown numbers or numbers without international prefix." },
+                { title: "Activity Chart", text: "View your blocking activity over time. Switch between Daily, Weekly, and Monthly views. Use the navigation arrows to browse different periods." },
+                { title: "Top Origins", text: "See which countries are sending the most blocked calls. This helps you identify patterns and adjust your blocking settings." }
             ]
         },
         widgets: {
@@ -355,6 +324,7 @@ const translations = {
             navStatistics: "Statistiche",
             blacklistSubNav: {
                 countries: "Paesi",
+                prefixes: "Prefissi",
                 numbers: "Numeri",
                 settings: "Impostazioni"
             },
@@ -393,7 +363,7 @@ const translations = {
             blacklist: {
                 countries: {
                     title: "Paesi",
-                    step: "Passo 1 di 4",
+                    step: "Passo 1 di 5",
                     subtitle: "Gestisci il blocco delle chiamate per regione.",
                     searchPlaceholder: "Cerca paesi o codici…",
                     filterAll: "Tutti",
@@ -403,9 +373,19 @@ const translations = {
                     allowAll: "Consenti Tutto",
                     hint: "Clicca sulle icone per bloccare o sbloccare i paesi"
                 },
+                prefixes: {
+                    title: "Prefissi",
+                    step: "Passo 2 di 5",
+                    subtitle: "Blocca le chiamate che iniziano con queste cifre dopo il prefisso internazionale.",
+                    independentInfo: "I prefissi vengono controllati indipendentemente dalle impostazioni di blocco dei paesi.",
+                    searchPlaceholder: "Cerca prefissi…",
+                    noBlockedPrefixes: "Nessun prefisso bloccato",
+                    addPrefix: "Aggiungi prefisso",
+                    footerInfo: "Aggiungi prefissi di 2–4 cifre da bloccare. Il controllo avviene dopo il prefisso internazionale, indipendentemente dalle impostazioni paesi."
+                },
                 numbers: {
                     title: "Numeri",
-                    step: "Passo 2 di 4",
+                    step: "Passo 4 di 5",
                     subtitle: "Gestisci i numeri di telefono bloccati.",
                     searchPlaceholder: "Cerca numeri…",
                     footerInfo: "Le chiamate da questi numeri verranno automaticamente rifiutate e registrate nelle tue Statistiche.",
@@ -413,7 +393,7 @@ const translations = {
                 },
                 settings: {
                     title: "Impostazioni",
-                    step: "Passo 3 di 4",
+                    step: "Passo 5 di 5",
                     unknownNumbers: {
                         title: "Numeri Sconosciuti",
                         description: "Blocca automaticamente le chiamate in arrivo da numeri non salvati nella tua lista contatti. Usa con cautela."
@@ -435,7 +415,7 @@ const translations = {
                 },
                 provinces: {
                     title: "Province Italiane",
-                    step: "Passo 4 di 4",
+                    step: "Passo 3 di 5",
                     subtitle: "Gestisci il blocco delle chiamate per prefisso provinciale.",
                     searchPlaceholder: "Cerca province o prefissi…",
                     filterAll: "Tutti",
@@ -455,62 +435,20 @@ const translations = {
             next: "Successivo",
             finish: "Fine",
             steps: [
-                {
-                    title: "Stato Protezione",
-                    text: "Questa è la scheda di protezione principale. Attiva o disattiva l'interruttore per abilitare o disabilitare il blocco delle chiamate. Quando è abilitato, CallShield bloccherà automaticamente le chiamate indesiderate."
-                },
-                {
-                    title: "Statistiche",
-                    text: "Visualizza le tue statistiche di blocco qui. Vedi quante chiamate sono state bloccate oggi e in totale. Le barre di avanzamento mostrano la tua attività di blocco."
-                },
-                {
-                    title: "Attività Recente",
-                    text: "Vedi le tue chiamate bloccate di recente qui. Questo ti aiuta a tracciare quali numeri sono stati bloccati e quando."
-                },
-                {
-                    title: "Cerca Whitelist",
-                    text: "Cerca numeri nella tua whitelist. Digita per filtrare l'elenco e trovare contatti specifici rapidamente."
-                },
-                {
-                    title: "Consenti Tutti i Contatti",
-                    text: "Abilita questa opzione per aggiungere automaticamente tutti i contatti della rubrica alla whitelist. Questo assicura che tutti i tuoi contatti salvati possano sempre contattarti."
-                },
-                {
-                    title: "Aggiungi alla Whitelist",
-                    text: "Puoi aggiungere manualmente contatti alla tua whitelist. Visualizza qui i numeri nella whitelist e gestiscili individualmente. I numeri nella whitelist potranno sempre chiamarti."
-                },
-                {
-                    title: "Grafico Attività",
-                    text: "Visualizza la tua attività di blocco nel tempo. Passa tra le visualizzazioni Giornaliera, Settimanale e Mensile. Usa le frecce di navigazione per sfogliare periodi diversi."
-                },
-                {
-                    title: "Origini Principali",
-                    text: "Vedi quali paesi stanno inviando il maggior numero di chiamate bloccate. Questo ti aiuta a identificare modelli e regolare le tue impostazioni di blocco."
-                },
-                {
-                    title: "Navigazione Blacklist",
-                    text: "La sezione Blacklist ha quattro parti: Paesi, Numeri, Impostazioni e Province Italiane. Usa i pulsanti indietro e avanti per spostarti tra di esse."
-                },
-                {
-                    title: "Filtra Paesi",
-                    text: "Filtra i paesi per stato: Tutti, Bloccati o Consentiti. Questo rende più facile gestire grandi elenchi di paesi."
-                },
-                {
-                    title: "Blocca Paesi",
-                    text: "Attiva l'interruttore accanto a ogni paese per bloccare o consentire chiamate da quella regione. Verde significa consentito, rosso significa bloccato."
-                },
-                {
-                    title: "Blacklist Numeri",
-                    text: "Aggiungi numeri di telefono specifici da bloccare sempre. Questi numeri saranno bloccati indipendentemente da altre impostazioni."
-                },
-                {
-                    title: "Impostazioni Blacklist",
-                    text: "Configura regole di blocco avanzate. Blocca numeri sconosciuti o numeri senza prefisso internazionale."
-                },
-                {
-                    title: "Province Italiane",
-                    text: "Gestisci il blocco delle chiamate per prefisso provinciale. Filtra per Tutti, Bloccati o Consentiti. Usa Blocca tutto o Consenti tutto per modifiche rapide, oppure tocca ogni provincia per attivare o disattivare."
-                }
+                { title: "Stato Protezione", text: "Questa è la scheda di protezione principale. Attiva o disattiva l'interruttore per abilitare o disabilitare il blocco delle chiamate. Quando è abilitato, CallShield bloccherà automaticamente le chiamate indesiderate." },
+                { title: "Attività Recente", text: "Vedi le tue chiamate bloccate di recente qui. Questo ti aiuta a tracciare quali numeri sono stati bloccati e quando." },
+                { title: "Cerca Whitelist", text: "Cerca numeri nella tua whitelist. Digita per filtrare l'elenco e trovare contatti specifici rapidamente." },
+                { title: "Consenti Tutti i Contatti", text: "Abilita questa opzione per aggiungere automaticamente tutti i contatti della rubrica alla whitelist. Questo assicura che tutti i tuoi contatti salvati possano sempre contattarti." },
+                { title: "Aggiungi alla Whitelist", text: "Puoi aggiungere manualmente contatti alla tua whitelist. Visualizza qui i numeri nella whitelist e gestiscili individualmente. I numeri nella whitelist potranno sempre chiamarti." },
+                { title: "Navigazione Blacklist", text: "La sezione Blacklist ha cinque parti: Paesi, Prefissi, Province Italiane, Numeri e Impostazioni. Usa i pulsanti indietro e avanti per spostarti tra di esse." },
+                { title: "Filtra Paesi", text: "Filtra i paesi per stato: Tutti, Bloccati o Consentiti. Questo rende più facile gestire grandi elenchi di paesi." },
+                { title: "Blocca Paesi", text: "Attiva l'interruttore accanto a ogni paese per bloccare o consentire chiamate da quella regione. Verde significa consentito, rosso significa bloccato." },
+                { title: "Prefissi", text: "Blocca i numeri che iniziano con le cifre che aggiungi qui, dopo il prefisso internazionale. Il controllo avviene indipendentemente dalle impostazioni di blocco dei paesi." },
+                { title: "Province Italiane", text: "Gestisci il blocco delle chiamate per prefisso provinciale. Filtra per Tutti, Bloccati o Consentiti. Usa Blocca tutto o Consenti tutto per modifiche rapide, oppure tocca ogni provincia per attivare o disattivare." },
+                { title: "Blacklist Numeri", text: "Aggiungi numeri di telefono specifici da bloccare sempre. Questi numeri saranno bloccati indipendentemente da altre impostazioni." },
+                { title: "Impostazioni Blacklist", text: "Configura regole di blocco avanzate. Blocca numeri sconosciuti o numeri senza prefisso internazionale." },
+                { title: "Grafico Attività", text: "Visualizza la tua attività di blocco nel tempo. Passa tra le visualizzazioni Giornaliera, Settimanale e Mensile. Usa le frecce di navigazione per sfogliare periodi diversi." },
+                { title: "Origini Principali", text: "Vedi quali paesi stanno inviando il maggior numero di chiamate bloccate. Questo ti aiuta a identificare modelli e regolare le tue impostazioni di blocco." }
             ]
         },
         widgets: {
